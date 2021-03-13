@@ -34,6 +34,20 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::EventType::KeyPressed)
+            {
+                if (event.key.code == sf::Keyboard::Up)
+                {
+                    cout << "up\n";
+                    raytracer.scene.getEye().z += 10;
+                }
+
+                if (event.key.code == sf::Keyboard::Down)
+                {
+                    cout << "down\n";
+                    raytracer.scene.getEye().z -= 10;
+                }    
+            }            
         }
 
         sf::Image img = raytracer.renderToSFImage();
@@ -42,7 +56,7 @@ int main()
         sf::Sprite sprite;
         sprite.setTexture(texture);  
 
-        cout << "framerate: " <<  1000.0 / Clock.getElapsedTime().asMilliseconds() << '\n';
+        //cout << "framerate: " <<  1000.0 / Clock.getElapsedTime().asMilliseconds() << '\n';
         Clock.restart();
 
         window.clear();

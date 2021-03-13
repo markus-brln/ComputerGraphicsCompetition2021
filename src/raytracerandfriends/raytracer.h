@@ -14,9 +14,11 @@ class Material;
 
 class Raytracer
 {
-    Scene scene;
+    
 
     public:
+        Scene scene;        // MB made public to allow high-level access to setEye()
+
 
         bool readScene(std::string const &ifname);
         void renderToFile(std::string const &ofname);

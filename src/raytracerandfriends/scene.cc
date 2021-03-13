@@ -223,7 +223,7 @@ void Scene::renderToSFImage(sf::Image &img)
     unsigned h = size.y;
     //unsigned w = img.width();
     //unsigned h = img.height();
-
+        
     # pragma omp parallel for
     for (unsigned y = 0; y < h; ++y)
         for (unsigned x = 0; x < w; ++x)

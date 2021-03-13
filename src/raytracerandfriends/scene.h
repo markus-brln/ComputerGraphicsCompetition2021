@@ -49,6 +49,11 @@ class Scene
         void addObject(ObjectPtr obj);
         void addLight(Light const &light);
         void setEye(Triple const &position);
+        Triple &getEye()
+        {
+            return eye;
+        }
+        
         void setRenderShadows(bool renderShadows);
         void setRecursionDepth(unsigned depth);
         void setSuperSample(unsigned factor);
