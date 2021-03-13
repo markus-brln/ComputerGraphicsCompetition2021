@@ -1,0 +1,2 @@
+- first try sf::Image 400x400, Scene/3_refraction, standard render -> 2.5 fps
+- with openMP -> ~7 fps
