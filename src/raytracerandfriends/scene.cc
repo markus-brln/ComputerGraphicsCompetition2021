@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <cmath>
 #include <limits>
+#include <omp.h>
 
 using namespace std;
 
@@ -215,14 +216,12 @@ void Scene::render(Image &img)
         }
 }
 
-#include <omp.h>
+
 void Scene::renderToSFImage(sf::Image &img)
 {
     sf::Vector2u size = img.getSize();
     unsigned w = size.x;
     unsigned h = size.y;
-    //unsigned w = img.width();
-    //unsigned h = img.height();
         
     # pragma omp parallel for
     for (unsigned y = 0; y < h; ++y)
@@ -233,11 +232,13 @@ void Scene::renderToSFImage(sf::Image &img)
             Color col = trace(ray, recursionDepth);
             col.clamp();
             
-            img.setPixel(x, y, sf::Color{ int{255 * col.r}, int{255 * col.g}, int{255 * col.b} } );
-            //img(x, y) = col;
+            // MB some conversion problems here, but whatever..
+            img.setPixel(x, y, sf::Color{ col.r * 255,  col.g * 255, col.b * 255 });
         }
 }
-// MB 
+// MB rewritten render function
+
+
 // --- Misc functions ----------------------------------------------------------
 
 // Defaults

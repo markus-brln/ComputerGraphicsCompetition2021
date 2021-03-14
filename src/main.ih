@@ -1,0 +1,7 @@
+#include "raytracerandfriends/raytracer.h"
+#include "controller/controller.h"
+#include <SFML/Graphics.hpp>
+#include <omp.h>
+
+
+using namespace std;

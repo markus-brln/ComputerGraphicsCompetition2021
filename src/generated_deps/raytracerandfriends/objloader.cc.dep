@@ -1,0 +1,4 @@
+raytracerandfriends/objloader.o: raytracerandfriends/objloader.cc \
+ raytracerandfriends/objloader.h raytracerandfriends/vertex.h
+raytracerandfriends/objloader.h:
+raytracerandfriends/vertex.h:

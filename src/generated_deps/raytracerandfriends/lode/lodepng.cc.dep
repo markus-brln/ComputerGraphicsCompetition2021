@@ -1,0 +1,3 @@
+raytracerandfriends/lode/lodepng.o: raytracerandfriends/lode/lodepng.cc \
+ raytracerandfriends/lode/lodepng.h
+raytracerandfriends/lode/lodepng.h:

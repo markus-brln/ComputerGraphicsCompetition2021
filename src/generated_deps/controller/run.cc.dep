@@ -1,0 +1,23 @@
+controller/run.o: controller/run.cc controller/controller.ih.gch \
+ controller/controller.h controller/../raytracerandfriends/raytracer.h \
+ controller/../raytracerandfriends/scene.h \
+ controller/../raytracerandfriends/light.h \
+ controller/../raytracerandfriends/triple.h \
+ controller/../raytracerandfriends/json/json_fwd.h \
+ controller/../raytracerandfriends/object.h \
+ controller/../raytracerandfriends/material.h \
+ controller/../raytracerandfriends/image.h \
+ controller/../raytracerandfriends/hit.h \
+ controller/../raytracerandfriends/ray.h
+controller/controller.ih:
+controller/controller.h:
+controller/../raytracerandfriends/raytracer.h:
+controller/../raytracerandfriends/scene.h:
+controller/../raytracerandfriends/light.h:
+controller/../raytracerandfriends/triple.h:
+controller/../raytracerandfriends/json/json_fwd.h:
+controller/../raytracerandfriends/object.h:
+controller/../raytracerandfriends/material.h:
+controller/../raytracerandfriends/image.h:
+controller/../raytracerandfriends/hit.h:
+controller/../raytracerandfriends/ray.h:

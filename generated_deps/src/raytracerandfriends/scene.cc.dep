@@ -1,0 +1,15 @@
+src/raytracerandfriends/scene.o: src/raytracerandfriends/scene.cc \
+ src/raytracerandfriends/scene.h src/raytracerandfriends/light.h \
+ src/raytracerandfriends/triple.h src/raytracerandfriends/json/json_fwd.h \
+ src/raytracerandfriends/object.h src/raytracerandfriends/material.h \
+ src/raytracerandfriends/image.h src/raytracerandfriends/hit.h \
+ src/raytracerandfriends/ray.h
+src/raytracerandfriends/scene.h:
+src/raytracerandfriends/light.h:
+src/raytracerandfriends/triple.h:
+src/raytracerandfriends/json/json_fwd.h:
+src/raytracerandfriends/object.h:
+src/raytracerandfriends/material.h:
+src/raytracerandfriends/image.h:
+src/raytracerandfriends/hit.h:
+src/raytracerandfriends/ray.h:

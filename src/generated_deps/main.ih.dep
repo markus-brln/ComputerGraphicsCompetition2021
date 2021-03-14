@@ -1,0 +1,19 @@
+main.ih.gch: main.ih raytracerandfriends/raytracer.h \
+ raytracerandfriends/scene.h raytracerandfriends/light.h \
+ raytracerandfriends/triple.h raytracerandfriends/json/json_fwd.h \
+ raytracerandfriends/object.h raytracerandfriends/material.h \
+ raytracerandfriends/image.h raytracerandfriends/hit.h \
+ raytracerandfriends/ray.h controller/controller.h \
+ controller/../raytracerandfriends/raytracer.h
+raytracerandfriends/raytracer.h:
+raytracerandfriends/scene.h:
+raytracerandfriends/light.h:
+raytracerandfriends/triple.h:
+raytracerandfriends/json/json_fwd.h:
+raytracerandfriends/object.h:
+raytracerandfriends/material.h:
+raytracerandfriends/image.h:
+raytracerandfriends/hit.h:
+raytracerandfriends/ray.h:
+controller/controller.h:
+controller/../raytracerandfriends/raytracer.h:

@@ -1,0 +1,18 @@
+src/raytracerandfriends/shapes/quad.o: \
+ src/raytracerandfriends/shapes/quad.cc \
+ src/raytracerandfriends/shapes/quad.h \
+ src/raytracerandfriends/shapes/../object.h \
+ src/raytracerandfriends/shapes/../material.h \
+ src/raytracerandfriends/shapes/../image.h \
+ src/raytracerandfriends/shapes/../triple.h \
+ src/raytracerandfriends/shapes/../json/json_fwd.h \
+ src/raytracerandfriends/shapes/../hit.h \
+ src/raytracerandfriends/shapes/../ray.h
+src/raytracerandfriends/shapes/quad.h:
+src/raytracerandfriends/shapes/../object.h:
+src/raytracerandfriends/shapes/../material.h:
+src/raytracerandfriends/shapes/../image.h:
+src/raytracerandfriends/shapes/../triple.h:
+src/raytracerandfriends/shapes/../json/json_fwd.h:
+src/raytracerandfriends/shapes/../hit.h:
+src/raytracerandfriends/shapes/../ray.h:
