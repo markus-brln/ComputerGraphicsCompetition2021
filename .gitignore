@@ -1,3 +1,5 @@
+src/generated_deps/*
+
 # Prerequisites
 *.d
 
