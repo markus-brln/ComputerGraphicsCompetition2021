@@ -1,7 +1,7 @@
 #include "main.ih"
 
 // define globals
-unsigned SIZE = 200;
+unsigned SIZE = 400;
 std::string SCENE = "../Scenes/3_refraction/1.json";
 
 

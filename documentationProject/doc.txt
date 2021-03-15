@@ -1,2 +1,10 @@
+DOCUMENTATION OF DEVELOPMENT PROCESS
+
+March 13 2021
 - first try sf::Image 400x400, Scene/3_refraction, standard render -> 2.5 fps
 - with openMP -> ~7 fps
+
+March 15
+- when moving view around, perspective is not taken into account by raytracer,
+  needs fixing
+- realized that the green background in the scene was actually another sphere
