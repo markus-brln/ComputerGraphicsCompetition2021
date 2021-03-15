@@ -1,4 +1,5 @@
 #include "raytracer.h"
+#include "../globals.h"
 
 #include "image.h"
 #include "light.h"
@@ -191,7 +192,7 @@ sf::Image Raytracer::renderToSFImage()
     // TODO: the size may be a settings in your file
     sf::Image img;        // construct SFML image
 
-    img.create(400, 400);
+    img.create(SIZE, SIZE);
 
     cout << "Tracing...\n";
     scene.renderToSFImage(img);

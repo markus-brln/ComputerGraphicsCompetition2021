@@ -4,7 +4,8 @@ raytracerandfriends/raytracer.o: raytracerandfriends/raytracer.cc \
  raytracerandfriends/json/json_fwd.h raytracerandfriends/object.h \
  raytracerandfriends/material.h raytracerandfriends/image.h \
  raytracerandfriends/hit.h raytracerandfriends/ray.h \
- raytracerandfriends/shapes/quad.h raytracerandfriends/shapes/../object.h \
+ raytracerandfriends/../globals.h raytracerandfriends/shapes/quad.h \
+ raytracerandfriends/shapes/../object.h \
  raytracerandfriends/shapes/sphere.h raytracerandfriends/json/json.h
 raytracerandfriends/raytracer.h:
 raytracerandfriends/scene.h:
@@ -16,6 +17,7 @@ raytracerandfriends/material.h:
 raytracerandfriends/image.h:
 raytracerandfriends/hit.h:
 raytracerandfriends/ray.h:
+raytracerandfriends/../globals.h:
 raytracerandfriends/shapes/quad.h:
 raytracerandfriends/shapes/../object.h:
 raytracerandfriends/shapes/sphere.h:

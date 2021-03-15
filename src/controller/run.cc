@@ -1,9 +1,10 @@
 #include "controller.ih"
+#include "../globals.h"
 
 void Controller::run()
 {
     // read the scene
-    if (!d_raytracer.readScene("../Scenes/3_refraction/1.json"))
+    if (!d_raytracer.readScene(SCENE))
     {
         cerr << "Error: reading scene from " << 
             " failed - no output generated.\n";
