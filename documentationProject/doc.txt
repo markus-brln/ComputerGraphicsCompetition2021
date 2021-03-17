@@ -8,3 +8,14 @@ March 15
 - when moving view around, perspective is not taken into account by raytracer,
   needs fixing
 - realized that the green background in the scene was actually another sphere
+
+March 17
+- made a virtual screen with:
+  Point upperLeft{ eye.x - SIZE / 2, eye.y + SIZE / 2, eye.z - SIZE };
+  where SIZE is the amount of pixels in x,y -> leads to 45° view
+- ray reference (pixel) points generated from:
+  Point pixel{ upperLeft.x + x * right.x, upperLeft.y + y * down.y, upperLeft.z };
+- screen moves with eye in x,y,z, so no distortions anymore
+- TODO: rotation of the eye in x,y,z -> transform upperLeft point and the right+down vectors
+
+

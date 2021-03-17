@@ -1,5 +1,5 @@
 #include "scene.h"
-
+#include "../globals.h"
 #include "hit.h"
 #include "image.h"
 #include "material.h"
@@ -222,12 +222,22 @@ void Scene::renderToSFImage(sf::Image &img)
     sf::Vector2u size = img.getSize();
     unsigned w = size.x;
     unsigned h = size.y;
-        
+    
+    //cout << "eye: " << eye << '\n';
+    Point upperLeft{ eye.x - SIZE / 2, eye.y + SIZE / 2, eye.z - SIZE };   // upper-left part of the "screen" through which rays are shot
+
+    cout << upperLeft << '\n';
+    Vector down{ 0, -1, 0 };            // vector down from upperLeft
+    Vector right{ 1, 0, 0 };            // vector right from upperLeft
+
     # pragma omp parallel for
     for (unsigned y = 0; y < h; ++y)
         for (unsigned x = 0; x < w; ++x)
         {
-            Point pixel(x + 0.5, h - 1 - y + 0.5, 0);
+            Point pixel{ upperLeft.x + x * right.x, upperLeft.y + y * down.y, upperLeft.z };
+
+                    // traditional ray set-up
+            //Point pixel(x + 0.5, h - 1 - y + 0.5, 0);
             Ray ray(eye, (pixel - eye).normalized());
             Color col = trace(ray, recursionDepth);
             col.clamp();
