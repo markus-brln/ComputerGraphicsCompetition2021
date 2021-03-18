@@ -72,7 +72,7 @@ Color Scene::trace(Ray const &ray, unsigned depth)
     Hit min_hit = mainhit.second;
 
     // No hit? Return background color.
-    if (!obj)
+    if (!obj || min_hit.t < 0)
         return Color(0.0, 0.0, 0.0);
 
     Material const &material = obj->material;
@@ -216,6 +216,40 @@ void Scene::render(Image &img)
         }
 }
 
+void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot)
+{
+    // ACII way of writing the matrices & vectors down taken from:
+    // https://stackoverflow.com/questions/14607640/rotating-a-vector-in-3d-space
+
+    // rotation around x
+    //|1     0           0| |x|   |        x        |   |x'|
+    //|0   cos θ    −sin θ| |y| = |y cos θ − z sin θ| = |y'|
+    //|0   sin θ     cos θ| |z|   |y sin θ + z cos θ|   |z'|
+    Vector vecCopy{vec};
+    // vec.x = same
+    vec.y = vecCopy.y * cos(x_rot) - vecCopy.z * sin(x_rot);
+    vec.z = vecCopy.y * sin(x_rot) + vecCopy.z * cos(x_rot);
+
+    // roation around y
+    //| cos θ    0   sin θ| |x|   | x cos θ + z sin θ|   |x'|
+    //|   0      1       0| |y| = |         y        | = |y'|
+    //|−sin θ    0   cos θ| |z|   |−x sin θ + z cos θ|   |z'|
+    vecCopy = vec;
+    vec.x = vecCopy.x * cos(y_rot) + vecCopy.z * sin(y_rot);
+    // vec.y = same
+    vec.z = -vecCopy.x * sin(y_rot) + vecCopy.z * cos(y_rot);
+
+    // rotation around z
+    // |cos θ   −sin θ   0| |x|   |x cos θ − y sin θ|   |x'|
+    // |sin θ    cos θ   0| |y| = |x sin θ + y cos θ| = |y'|
+    // |  0       0      1| |z|   |        z        |   |z'|
+    vecCopy = vec;
+    vec.x = vecCopy.x * cos(z_rot) - vecCopy.y * sin(z_rot);
+    vec.y = vecCopy.x * sin(z_rot) + vecCopy.y * cos(z_rot);
+    // vec.z = same
+}
+// operates on ref of Vector obj
+
 
 void Scene::renderToSFImage(sf::Image &img)
 {
@@ -226,15 +260,28 @@ void Scene::renderToSFImage(sf::Image &img)
     //cout << "eye: " << eye << '\n';
     Point upperLeft{ eye.x - SIZE / 2, eye.y + SIZE / 2, eye.z - SIZE };   // upper-left part of the "screen" through which rays are shot
 
-    cout << upperLeft << '\n';
+    //cout << upperLeft << '\n';
     Vector down{ 0, -1, 0 };            // vector down from upperLeft
     Vector right{ 1, 0, 0 };            // vector right from upperLeft
+
+    //Vector rotation = eyeRotation;
+
+    rotateVector(upperLeft, eyeRotation.x, eyeRotation.y, eyeRotation.z);
+    rotateVector(down, eyeRotation.x, eyeRotation.y, eyeRotation.z);
+    rotateVector(right, eyeRotation.x, eyeRotation.y, eyeRotation.z);
+    cout << "UL: " << upperLeft << '\n';
+    cout << "down: " << down << '\n';
+    cout << "right: " << right << '\n';
 
     # pragma omp parallel for
     for (unsigned y = 0; y < h; ++y)
         for (unsigned x = 0; x < w; ++x)
         {
-            Point pixel{ upperLeft.x + x * right.x, upperLeft.y + y * down.y, upperLeft.z };
+            //Point pixel{    upperLeft.x + x * right.x + y * down.x, 
+            //                upperLeft.y + x * right.y + y * down.y,
+            //                upperLeft.z + 
+            //            };
+            Point pixel = upperLeft + x * right + y * down;
 
                     // traditional ray set-up
             //Point pixel(x + 0.5, h - 1 - y + 0.5, 0);
@@ -276,6 +323,13 @@ void Scene::setEye(Triple const &position)
 {
     eye = position;
 }
+// MB
+
+void Scene::setEyeRotation(Triple const &rotation)
+{
+    eyeRotation = rotation;
+}
+// MB
 
 unsigned Scene::getNumObject()
 {

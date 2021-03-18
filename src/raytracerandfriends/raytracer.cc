@@ -194,7 +194,7 @@ sf::Image Raytracer::renderToSFImage()
 
     img.create(SIZE, SIZE);
 
-    cout << "Tracing...\n";
+    //cout << "Tracing...\n";
     scene.renderToSFImage(img);
 
     return img;

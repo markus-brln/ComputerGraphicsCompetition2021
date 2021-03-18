@@ -25,8 +25,9 @@ void Controller::run()
         texture.loadFromImage(img);  //Load Texture from image
         sf::Sprite sprite;
         sprite.setTexture(texture);  
-
-        cout << "framerate: " <<  1000.0 / Clock.getElapsedTime().asMilliseconds() << '\n';
+        cout << "rotation: " << d_raytracer.scene.getEyeRotation() << '\n';
+        
+        //cout << "framerate: " <<  1000.0 / Clock.getElapsedTime().asMilliseconds() << '\n';
         Clock.restart();
 
         d_window.clear();

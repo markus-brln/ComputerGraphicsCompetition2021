@@ -22,6 +22,8 @@ class Scene
     std::vector<ObjectPtr> objects;
     std::vector<LightPtr> lights;
     Point eye;
+    Vector eyeRotation;                 // MB 
+
     bool renderShadows;
     unsigned recursionDepth;
     unsigned supersamplingFactor;
@@ -49,10 +51,18 @@ class Scene
         void addObject(ObjectPtr obj);
         void addLight(Light const &light);
         void setEye(Triple const &position);
+        void setEyeRotation(Triple const &rotation);
+
         Triple &getEye()
         {
             return eye;
         }
+        Triple &getEyeRotation()
+        {
+            return eyeRotation;
+        }
+        // MB returning references to the eye position&rotation
+        // such that the controller can change them
         
         void setRenderShadows(bool renderShadows);
         void setRecursionDepth(unsigned depth);
