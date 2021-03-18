@@ -18,4 +18,10 @@ March 17
 - screen moves with eye in x,y,z, so no distortions anymore
 - TODO: rotation of the eye in x,y,z -> transform upperLeft point and the right+down vectors
 
-
+March 18
+- perspective by transforming upperLeft screen point and right+down 
+  edge vectors with x,y,z rotation
+- works well, only sometimes (at certain distances) the sphere gets stretched all
+  over the screen
+- TODO: make WASDQE control move in view direction?
+        figure out why the sphere gets stretched

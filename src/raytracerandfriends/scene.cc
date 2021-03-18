@@ -72,8 +72,15 @@ Color Scene::trace(Ray const &ray, unsigned depth)
     Hit min_hit = mainhit.second;
 
     // No hit? Return background color.
-    if (!obj || min_hit.t < 0)
+    if (!obj)
+    {
         return Color(0.0, 0.0, 0.0);
+    }
+    if (min_hit.t < 0)
+    {
+        cout << "behind";
+        return Color(0.0, 0.0, 0.0);
+    }
 
     Material const &material = obj->material;
     Point hit = ray.at(min_hit.t);
@@ -277,15 +284,15 @@ void Scene::renderToSFImage(sf::Image &img)
     for (unsigned y = 0; y < h; ++y)
         for (unsigned x = 0; x < w; ++x)
         {
-            //Point pixel{    upperLeft.x + x * right.x + y * down.x, 
-            //                upperLeft.y + x * right.y + y * down.y,
-            //                upperLeft.z + 
-            //            };
             Point pixel = upperLeft + x * right + y * down;
 
                     // traditional ray set-up
             //Point pixel(x + 0.5, h - 1 - y + 0.5, 0);
             Ray ray(eye, (pixel - eye).normalized());
+
+            //cout << ray.D;
+            //exit(0);
+
             Color col = trace(ray, recursionDepth);
             col.clamp();
             
