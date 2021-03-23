@@ -2,7 +2,8 @@
 #define VIEW_H
 
 #include "../raytracerandfriends/raytracer.h"
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
 
 
 class Controller

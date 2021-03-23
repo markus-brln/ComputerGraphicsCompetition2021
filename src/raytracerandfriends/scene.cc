@@ -71,6 +71,7 @@ Color Scene::trace(Ray const &ray, unsigned depth)
     ObjectPtr obj = mainhit.first;
     Hit min_hit = mainhit.second;
 
+
     // No hit? Return background color.
     if (!obj)
     {
@@ -78,9 +79,10 @@ Color Scene::trace(Ray const &ray, unsigned depth)
     }
     if (min_hit.t < 0)
     {
-        cout << "behind";
         return Color(0.0, 0.0, 0.0);
     }
+
+    //cout << "t: " << min_hit.t << '\n';
 
     Material const &material = obj->material;
     Point hit = ray.at(min_hit.t);
@@ -273,14 +275,24 @@ void Scene::renderToSFImage(sf::Image &img)
 
     //Vector rotation = eyeRotation;
 
+    //eye = Vector{0,0,630};
+    //eyeRotation = Vector{0, 0, 0};
+
     rotateVector(upperLeft, eyeRotation.x, eyeRotation.y, eyeRotation.z);
     rotateVector(down, eyeRotation.x, eyeRotation.y, eyeRotation.z);
     rotateVector(right, eyeRotation.x, eyeRotation.y, eyeRotation.z);
+    //cout << "eye: " << eye << '\n';
     cout << "UL: " << upperLeft << '\n';
-    cout << "down: " << down << '\n';
-    cout << "right: " << right << '\n';
+    //cout << "down: " << down << '\n';
+    //cout << "right: " << right << '\n';
 
-    # pragma omp parallel for
+    // construct camera vect, look whether hitpoint is in same dir (dot pos/neg)
+
+    Vector camera = right.cross(down);
+
+    cout << "cam: " << camera << '\n';
+
+    //# pragma omp parallel for
     for (unsigned y = 0; y < h; ++y)
         for (unsigned x = 0; x < w; ++x)
         {
@@ -288,16 +300,20 @@ void Scene::renderToSFImage(sf::Image &img)
 
                     // traditional ray set-up
             //Point pixel(x + 0.5, h - 1 - y + 0.5, 0);
-            Ray ray(eye, (pixel - eye).normalized());
-
-            //cout << ray.D;
-            //exit(0);
-
-            Color col = trace(ray, recursionDepth);
-            col.clamp();
             
-            // MB some conversion problems here, but whatever..
-            img.setPixel(x, y, sf::Color{ col.r * 255,  col.g * 255, col.b * 255 });
+            //if ((pixel - eye).dot(camera) > 0)
+            //{
+                Ray ray(eye, (pixel - eye).normalized());
+                Color col = trace(ray, recursionDepth);
+                col.clamp();
+                // MB some conversion problems here, but whatever..
+                img.setPixel(x, y, sf::Color{ col.r * 255,  col.g * 255, col.b * 255 });
+            //}
+            //else 
+            //{
+            //    cout << "wrong dir";
+            //    exit(0);
+            //}
         }
 }
 // MB rewritten render function

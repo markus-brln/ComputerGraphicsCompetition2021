@@ -4,7 +4,8 @@
 #include "scene.h"
 
 #include <string>
-#include <SFML/Graphics/Image.hpp>
+//#include <SFML/Graphics/Image.hpp>
+#include "../SFML/Graphics.hpp"
 
 // Forward declarations
 class Light;

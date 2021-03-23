@@ -9,7 +9,8 @@
 #include <utility>
 #include <iostream>
 
-#include <SFML/Graphics/Image.hpp>     // MB
+#include <SFML/Graphics/Image.hpp>     // if you have SFML installed
+
 
 using namespace std; 
 
