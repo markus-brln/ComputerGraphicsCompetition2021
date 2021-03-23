@@ -27,6 +27,9 @@ class Object
             // bogus implementation
             return Vector{};
         }
+
+        virtual void checkCorrectEye(Point &eye) = 0;   // every derived class must 
+                                                        // have this check
 };
 
 #endif

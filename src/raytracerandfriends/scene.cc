@@ -263,12 +263,23 @@ void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot)
 }
 // operates on ref of Vector obj
 
+void Scene::checkCorrectEye()
+{
+    for (auto obj : objects)
+        obj->checkCorrectEye(eye);      // implement this for all objects!
+}
+// checks whether the eye is in a bad spot with respect to the object,
+// changes that if necessary (e.g. move outside a sphere)
 
 void Scene::renderToSFImage(sf::Image &img)
 {
+    // TODO check whether eye is inside sphere!
+    checkCorrectEye();
+
     sf::Vector2u size = img.getSize();
     int w = size.x;
     int h = size.y;
+
 
 
     Vector down{ 0, -1, 0 };            // vector down from upperLeft
@@ -284,7 +295,7 @@ void Scene::renderToSFImage(sf::Image &img)
     //cout << "right: " << right << '\n';
 
 
-    // TODO check whether eye is inside sphere!
+    
 
     
 

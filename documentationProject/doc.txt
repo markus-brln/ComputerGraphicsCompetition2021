@@ -50,4 +50,4 @@ March 23
 
 TODO: - avoid crashing into spheres -> move further away using the eye-centre vector 
       - make image bigger, smooth
-      - solar system simulation with gravity
+      - solar system simulation with gravity, skybox

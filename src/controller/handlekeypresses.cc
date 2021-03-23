@@ -24,10 +24,11 @@ void Controller::handleKeyPresses()
         d_raytracer.scene.getEyeRotation().y += 0.05;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         d_raytracer.scene.getEyeRotation().y -= 0.05;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))
-        d_raytracer.scene.getEyeRotation().z -= 0.05;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))
-        d_raytracer.scene.getEyeRotation().z += 0.05;
+    // for now not active, would require even more rotation I think
+    //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))
+    //    d_raytracer.scene.getEyeRotation().z -= 0.05;
+    //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad3))
+    //    d_raytracer.scene.getEyeRotation().z += 0.05;
 }
 // this is for live input (allowing for multiple input actions at the same time),
 // nice tutorial about it: https://www.youtube.com/watch?v=hZ2WogmdLPo&t=76s

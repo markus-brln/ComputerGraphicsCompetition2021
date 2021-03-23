@@ -56,6 +56,7 @@ class Scene
         void translateEye(double right, double up, double forward);
         void setEye(Triple const &position);
         void setEyeRotation(Triple const &rotation);
+        void checkCorrectEye();
 
         Triple &getEye()
         {
