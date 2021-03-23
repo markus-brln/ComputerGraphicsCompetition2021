@@ -8,7 +8,8 @@ controller/run.o: controller/run.cc controller/controller.ih.gch \
  controller/../raytracerandfriends/material.h \
  controller/../raytracerandfriends/image.h \
  controller/../raytracerandfriends/hit.h \
- controller/../raytracerandfriends/ray.h controller/../globals.h
+ controller/../raytracerandfriends/ray.h controller/../utils/utils.h \
+ controller/../utils/../raytracerandfriends/triple.h
 controller/controller.ih:
 controller/controller.h:
 controller/../raytracerandfriends/raytracer.h:
@@ -21,4 +22,5 @@ controller/../raytracerandfriends/material.h:
 controller/../raytracerandfriends/image.h:
 controller/../raytracerandfriends/hit.h:
 controller/../raytracerandfriends/ray.h:
-controller/../globals.h:
+controller/../utils/utils.h:
+controller/../utils/../raytracerandfriends/triple.h:

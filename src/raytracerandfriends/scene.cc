@@ -1,5 +1,5 @@
 #include "scene.h"
-#include "../globals.h"
+#include "../utils/utils.h"             // globals and some functions
 #include "hit.h"
 #include "image.h"
 #include "material.h"
@@ -30,10 +30,6 @@ pair<ObjectPtr, Hit> Scene::castRay(Ray const &ray) const
     return pair<ObjectPtr, Hit>(obj, min_hit);
 }
 
-double distance3D(Triple t1, Triple t2)
-{
-    return sqrt(pow(t1.x - t2.x, 2) + pow(t1.y - t2.y, 2) + pow(t1.z - t2.z, 2));
-}
 
 bool Scene::lightObstructed(LightPtr const &light, Point const &hit, Vector const &normalFromObj)
 {
@@ -59,11 +55,6 @@ bool Scene::lightObstructed(LightPtr const &light, Point const &hit, Vector cons
 // look whether the light source is obstructed from its origin to the point
 // where it would hit the object
 
-double angle(Triple a, Triple b)
-{
-    return std::acos(a.dot(b)/(a.length()*b.length()));
-}
-// angle between 2 3D vectors
 
 Color Scene::trace(Ray const &ray, unsigned depth)
 {
@@ -229,40 +220,6 @@ void Scene::render(Image &img)
         }
 }
 
-void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot)
-{
-    // ACII way of writing the matrices & vectors down taken from:
-    // https://stackoverflow.com/questions/14607640/rotating-a-vector-in-3d-space
-
-    // rotation around x
-    //|1     0           0| |x|   |        x        |   |x'|
-    //|0   cos θ    −sin θ| |y| = |y cos θ − z sin θ| = |y'|
-    //|0   sin θ     cos θ| |z|   |y sin θ + z cos θ|   |z'|
-    Vector vecCopy{vec};
-    // vec.x = same
-    vec.y = vecCopy.y * cos(x_rot) - vecCopy.z * sin(x_rot);
-    vec.z = vecCopy.y * sin(x_rot) + vecCopy.z * cos(x_rot);
-
-    // roation around y
-    //| cos θ    0   sin θ| |x|   | x cos θ + z sin θ|   |x'|
-    //|   0      1       0| |y| = |         y        | = |y'|
-    //|−sin θ    0   cos θ| |z|   |−x sin θ + z cos θ|   |z'|
-    vecCopy = vec;
-    vec.x = vecCopy.x * cos(y_rot) + vecCopy.z * sin(y_rot);
-    // vec.y = same
-    vec.z = -vecCopy.x * sin(y_rot) + vecCopy.z * cos(y_rot);
-
-    // rotation around z
-    // |cos θ   −sin θ   0| |x|   |x cos θ − y sin θ|   |x'|
-    // |sin θ    cos θ   0| |y| = |x sin θ + y cos θ| = |y'|
-    // |  0       0      1| |z|   |        z        |   |z'|
-    vecCopy = vec;
-    vec.x = vecCopy.x * cos(z_rot) - vecCopy.y * sin(z_rot);
-    vec.y = vecCopy.x * sin(z_rot) + vecCopy.y * cos(z_rot);
-    // vec.z = same
-}
-// operates on ref of Vector obj
-
 void Scene::checkCorrectEye()
 {
     for (auto obj : objects)
@@ -270,6 +227,7 @@ void Scene::checkCorrectEye()
 }
 // checks whether the eye is in a bad spot with respect to the object,
 // changes that if necessary (e.g. move outside a sphere)
+
 
 void Scene::renderToSFImage(sf::Image &img)
 {
@@ -279,7 +237,6 @@ void Scene::renderToSFImage(sf::Image &img)
     sf::Vector2u size = img.getSize();
     int w = size.x;
     int h = size.y;
-
 
 
     Vector down{ 0, -1, 0 };            // vector down from upperLeft
@@ -295,10 +252,6 @@ void Scene::renderToSFImage(sf::Image &img)
     //cout << "right: " << right << '\n';
 
 
-    
-
-    
-
     # pragma omp parallel for
     for (int y = 0; y < h; ++y)
         for (int x = 0; x < w; ++x)
@@ -308,23 +261,13 @@ void Scene::renderToSFImage(sf::Image &img)
             //cout << screenCentre << '\n';
             //cout << pixel << '\n';
             //cout << (x - SIZE/2) * right << '\n';
-            //exit(0);
-                    // traditional ray set-up
-            //Point pixel(x + 0.5, h - 1 - y + 0.5, 0);
-            
-            //if ((pixel - eye).dot(camera) > 0)
-            //{
-                Ray ray(eye, (pixel - eye).normalized());
-                Color col = trace(ray, recursionDepth);
-                col.clamp();
-                // MB some conversion problems here, but whatever..
-                img.setPixel(x, y, sf::Color{ col.r * 255,  col.g * 255, col.b * 255 });
-            //}
-            //else 
-            //{
-            //    cout << "wrong dir";
-            //    exit(0);
-            //}
+
+            Ray ray(eye, (pixel - eye).normalized());
+            Color col = trace(ray, recursionDepth);
+            col.clamp();
+            // MB some conversion problems here, but whatever..
+            img.setPixel(x, y, sf::Color{ col.r * 255,  col.g * 255, col.b * 255 });
+
         }
 }
 // MB rewritten render function

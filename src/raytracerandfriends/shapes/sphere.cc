@@ -61,3 +61,9 @@ Sphere::Sphere(Point const &pos, double radius, Vector const& axis, double angle
     axis(axis),
     angle(angle)
 {}
+
+void Sphere::checkCorrectEye(Point &eye)
+{
+    if (distance3D(eye, position) < r)
+        eye += (eye - position).normalized() * 30;
+}

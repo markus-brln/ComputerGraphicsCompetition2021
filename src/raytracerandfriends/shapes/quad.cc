@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include <limits>
+#include <iostream>
 
 /*  Method:
  *  First find the intersection with the plane the quad is in,
@@ -51,3 +52,8 @@ Quad::Quad(Point const &v0,
     v3(v3),
     N((v1 - v0).cross(v3 - v0).normalized())
 {}
+
+void Quad::checkCorrectEye(Point &eye)
+{
+    std::cout << "eye check not implemented";
+}

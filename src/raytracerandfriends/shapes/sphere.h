@@ -2,6 +2,7 @@
 #define SPHERE_H_
 
 #include "../object.h"
+#include "../../utils/utils.h"
 
 class Sphere: public Object
 {
@@ -13,6 +14,7 @@ class Sphere: public Object
 
         Hit intersect(Ray const &ray) override;
         Vector toUV(Point const &hit) override;
+        void checkCorrectEye(Point &eye) override;       // MB
 
         Point const position;
         double const r;

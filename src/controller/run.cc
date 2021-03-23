@@ -1,5 +1,5 @@
 #include "controller.ih"
-#include "../globals.h"
+#include "../utils/utils.h"
 
 void Controller::run()
 {

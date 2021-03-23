@@ -13,6 +13,7 @@ class Quad: public Object
 
         Hit intersect(Ray const &ray) override;
         Vector toUV(Point const &hit) override;
+        void checkCorrectEye(Point &eye) override;       // MB
 
         Point const v0;
         Point const v1;

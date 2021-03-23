@@ -48,6 +48,12 @@ March 23
 - added live input (multiple key presses at once) for a smoother experience
 - added texture mapping for spheres 
 
-TODO: - avoid crashing into spheres -> move further away using the eye-centre vector 
-      - make image bigger, smooth
+- every Object has to implement a check function to determine whether 
+  the eye is at an appropriate position (e.g. not inside sphere)
+- virtual void checkCorrectEye(Point &eye) = 0; -> no crashing anymore when trying
+  to move into a sphere
+
+
+TODO: - make image bigger, smooth
       - solar system simulation with gravity, skybox
+      - handle rotating around Z -> the camera vector
