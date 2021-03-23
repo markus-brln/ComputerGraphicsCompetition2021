@@ -17,6 +17,7 @@ class Controller
 
         void run();
         void handleEvent(sf::Event &event);
+        void handleKeyPresses();
 };
 
 

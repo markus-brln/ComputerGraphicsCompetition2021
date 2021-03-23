@@ -45,3 +45,9 @@ March 23
   by the eyeRotation and adds that to the current eye position
 - that deserves a video again with scene 3.json (from assignment): 5PerspectiveWorking.mp4
 
+- added live input (multiple key presses at once) for a smoother experience
+- added texture mapping for spheres 
+
+TODO: - avoid crashing into spheres -> move further away using the eye-centre vector 
+      - make image bigger, smooth
+      - solar system simulation with gravity

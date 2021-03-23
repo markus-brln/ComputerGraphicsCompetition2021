@@ -19,6 +19,8 @@ void Controller::run()
         sf::Event event;
         while (d_window.pollEvent(event))
             handleEvent(event);
+        
+        handleKeyPresses();
 
         sf::Image img = d_raytracer.renderToSFImage();
         sf::Texture texture;

@@ -4,6 +4,9 @@
 int SIZE = 400;
 std::string SCENE = "../Scenes/3_refraction/3.json";
 
+// single sphere with earth texture
+//std::string SCENE = "../Scenes/5_fixed_texture/1.json";
+
 
 int main()
 {

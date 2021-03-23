@@ -95,7 +95,15 @@ Color Scene::trace(Ray const &ray, unsigned depth)
     else
         shadingN = -N;
 
-    Color matColor = material.color;
+    // -------- Texture mapping code
+    Color matColor;
+    if (material.hasTexture) {
+        Vector uvVector = obj->toUV(hit);
+        matColor = material.texture.colorAt(uvVector.x, 1.0 - uvVector.y);
+    } else {
+        matColor = material.color;
+    }
+    //-----------
 
     // Add ambient once, regardless of the number of lights.
     Color color = material.ka * matColor;
@@ -259,8 +267,8 @@ void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot)
 void Scene::renderToSFImage(sf::Image &img)
 {
     sf::Vector2u size = img.getSize();
-    unsigned w = size.x;
-    unsigned h = size.y;
+    int w = size.x;
+    int h = size.y;
 
 
     Vector down{ 0, -1, 0 };            // vector down from upperLeft
@@ -275,9 +283,8 @@ void Scene::renderToSFImage(sf::Image &img)
     //cout << "down: " << down << '\n';
     //cout << "right: " << right << '\n';
 
-    // construct camera vect, look whether hitpoint is in same dir (dot pos/neg)
 
-    
+    // TODO check whether eye is inside sphere!
 
     
 

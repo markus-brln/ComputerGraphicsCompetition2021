@@ -15,6 +15,20 @@
     "Objects": [
         {
             "type": "sphere",
+            "comment": "Earth sphere",
+            "position": [200, 250, 400],
+            "radius": 50,
+            "material":
+            {
+                "texture": "../textures/earthmap1k.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
             "comment": "Blue sphere",
             "position": [90, 320, 100],
             "radius": 50,
@@ -58,7 +72,7 @@
         {
             "type": "sphere",
             "comment": "Transparent sphere",
-            "position": [140, 220, 400],
+            "position": [140, 220, 300],
             "radius": 50,
             "rotation": [0,1,0.7],
             "angle": 90,
