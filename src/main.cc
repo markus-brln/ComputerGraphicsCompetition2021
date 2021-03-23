@@ -1,8 +1,8 @@
 #include "main.ih"
 
 // define globals
-unsigned SIZE = 400;
-std::string SCENE = "../Scenes/3_refraction/1.json";
+int SIZE = 400;
+std::string SCENE = "../Scenes/3_refraction/3.json";
 
 
 int main()

@@ -25,3 +25,23 @@ March 18
   over the screen
 - TODO: make WASDQE control move in view direction?
         figure out why the sphere gets stretched
+
+March 23
+- session with the TAs, couldn't help me but talked about making a camera vector
+- tried reading out values upperLeft point when rotating at different distances 
+- realized that when crossing the origin (0,0,0) with the imaginary screen, the 
+  calculation of upperLeft (see line 14) would go wrong (hence the stretched sphere,
+  reappearing on 1 pi rotation, opposite rotation when very positive in Z)
+- took the camera vector (cross product of the rotated right and down vectors)
+  and assigned the pixels from there:
+  Vector camera = right.cross(down);
+  Point screenCentre = eye + camera * SIZE;
+  Point pixel = screenCentre + (x - SIZE/2) * right + (y - SIZE/2) * down;
+- now everything works as intended, so thank you TAs!
+
+- using W to always go forward -> requires more rotations
+- made a Scene::translateEye(double right, double up, double forward)
+  it rotates the direction that is fed (e.g. 'W' -> d_raytracer.scene.translateEye(0, 0, -30);)
+  by the eyeRotation and adds that to the current eye position
+- that deserves a video again with scene 3.json (from assignment): 5PerspectiveWorking.mp4
+

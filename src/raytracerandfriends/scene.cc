@@ -77,10 +77,6 @@ Color Scene::trace(Ray const &ray, unsigned depth)
     {
         return Color(0.0, 0.0, 0.0);
     }
-    if (min_hit.t < 0)
-    {
-        return Color(0.0, 0.0, 0.0);
-    }
 
     //cout << "t: " << min_hit.t << '\n';
 
@@ -265,39 +261,36 @@ void Scene::renderToSFImage(sf::Image &img)
     sf::Vector2u size = img.getSize();
     unsigned w = size.x;
     unsigned h = size.y;
-    
-    //cout << "eye: " << eye << '\n';
-    Point upperLeft{ eye.x - SIZE / 2, eye.y + SIZE / 2, eye.z - SIZE };   // upper-left part of the "screen" through which rays are shot
 
-    //cout << upperLeft << '\n';
+
     Vector down{ 0, -1, 0 };            // vector down from upperLeft
     Vector right{ 1, 0, 0 };            // vector right from upperLeft
-
-    //Vector rotation = eyeRotation;
-
-    //eye = Vector{0,0,630};
-    //eyeRotation = Vector{0, 0, 0};
-
-    rotateVector(upperLeft, eyeRotation.x, eyeRotation.y, eyeRotation.z);
+    
     rotateVector(down, eyeRotation.x, eyeRotation.y, eyeRotation.z);
     rotateVector(right, eyeRotation.x, eyeRotation.y, eyeRotation.z);
+
+    Vector d_camera = right.cross(down);  // use the camera vector to get the pixels
+    Point screenCentre = eye + d_camera * SIZE;
     //cout << "eye: " << eye << '\n';
-    cout << "UL: " << upperLeft << '\n';
     //cout << "down: " << down << '\n';
     //cout << "right: " << right << '\n';
 
     // construct camera vect, look whether hitpoint is in same dir (dot pos/neg)
 
-    Vector camera = right.cross(down);
+    
 
-    cout << "cam: " << camera << '\n';
+    
 
-    //# pragma omp parallel for
-    for (unsigned y = 0; y < h; ++y)
-        for (unsigned x = 0; x < w; ++x)
+    # pragma omp parallel for
+    for (int y = 0; y < h; ++y)
+        for (int x = 0; x < w; ++x)
         {
-            Point pixel = upperLeft + x * right + y * down;
-
+            Point pixel = screenCentre + (x - SIZE/2) * right + (y - SIZE/2) * down;
+            //cout << SIZE << '\n';
+            //cout << screenCentre << '\n';
+            //cout << pixel << '\n';
+            //cout << (x - SIZE/2) * right << '\n';
+            //exit(0);
                     // traditional ray set-up
             //Point pixel(x + 0.5, h - 1 - y + 0.5, 0);
             
@@ -353,6 +346,16 @@ void Scene::setEyeRotation(Triple const &rotation)
     eyeRotation = rotation;
 }
 // MB
+
+void Scene::translateEye(double right, double up, double forward)
+{
+    Vector direction{ right, up, forward };
+    rotateVector(direction, eyeRotation.x, eyeRotation.y, eyeRotation.z);
+
+    eye += direction;
+}
+// MB receives the amount of translation in each direction, due to the eye's 
+// rotation, this has to be converted into the actual x,y,z translation.
 
 unsigned Scene::getNumObject()
 {

@@ -24,6 +24,7 @@ class Scene
     std::vector<LightPtr> lights;
     Point eye;
     Vector eyeRotation;                 // MB 
+    Vector d_camera;
 
     bool renderShadows;
     unsigned recursionDepth;
@@ -51,6 +52,8 @@ class Scene
 
         void addObject(ObjectPtr obj);
         void addLight(Light const &light);
+                            // MB x,           y,         z but rotated!
+        void translateEye(double right, double up, double forward);
         void setEye(Triple const &position);
         void setEyeRotation(Triple const &rotation);
 
