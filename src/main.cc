@@ -4,6 +4,8 @@
 int SIZE = 250;
 //int UPSCALED = 2 * SIZE;
 std::string SCENE = "../Scenes/myScenes/5solarSystem.json";
+//std::string SCENE = "../Scenes/myScenes/5.1earthAloneRotation.json";
+
 
 
 int main()

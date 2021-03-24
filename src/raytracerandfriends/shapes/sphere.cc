@@ -37,6 +37,7 @@ Hit Sphere::intersect(Ray const &ray)
 
     return Hit(t0, N);
 }
+#include <iostream>
 
 Vector Sphere::toUV(Point const &hit)
 {
@@ -44,10 +45,10 @@ Vector Sphere::toUV(Point const &hit)
     double x = hit.x - position.x;
     double y = hit.y - position.y;
     double z = hit.z - position.z;
-    //Point nhit = hit.normalized();
 
-    double u = 0.5 + (atan2(y, x) / (2 * PI));
-    double v = 1 - (acos(z / r) / PI);
+    // MB xyz were changed to zxy -> poles are now up, "90 degree rotation around x"
+    double u = 0.5 + (atan2(x, z) / (2 * PI));
+    double v = 1 - (acos(y / r) / PI);
 
     // Use a Vector to return 2 doubles. The third value is never read.
     return Vector{u, v, 0.0};
@@ -67,3 +68,4 @@ void Sphere::checkCorrectEye(Point &eye)
     if (distance3D(eye, position) < r)
         eye += (eye - position).normalized() * 30;
 }
+// MB push the eye/camera back by the amount it can maximally go -> 30 units

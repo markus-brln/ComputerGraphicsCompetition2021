@@ -1,0 +1,29 @@
+{
+    "Eye": [0, 0, 1000],
+    "Shadows": false,
+    "MaxRecursionDepth": 2,
+    "Lights": [
+        {
+            "position": [0, 0, 0],
+            "color": [1, 1, 1]
+        }
+    ],
+    "Objects": [
+        {
+            "type": "sphere",
+            "comment": "Earth sphere",
+            "position": [400, 0, 0],
+            "radius": 50,
+            "rotation": [0, 1, 0],
+            "angle": 45,
+            "material":
+            {
+                "texture": "../textures/earthmap1k.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        }
+    ]
+}

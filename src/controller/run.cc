@@ -29,7 +29,6 @@ void Controller::run()
         //upscaleSFImage(img);        // utils
         //auto start = Clock.getElapsedTime().asMilliseconds();
         texture.loadFromImage(img);  //Load Texture from image
-        
         sprite.setTexture(texture);
         
         cout << "framerate: " <<  1000.0 / Clock.getElapsedTime().asMilliseconds() << '\n';

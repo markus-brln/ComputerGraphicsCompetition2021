@@ -57,6 +57,10 @@ bool Raytracer::parseObjectNode(json const &node)
         Point v2(node["v2"]);
         Point v3(node["v3"]);
         obj = ObjectPtr(new Quad(v0, v1, v2, v3));
+        
+        if (string{ node["comment"] }.find("Skybox"))   // MB Skybox will only map the texture,
+            obj->isSkybox = true;                       // no raytracing, see Scene::trace()
+
     }
     else
     {
@@ -72,9 +76,6 @@ bool Raytracer::parseObjectNode(json const &node)
 
     // Parse material and add object to the scene
     obj->material = parseMaterialNode(node["material"]);
-
-    if (string{ node["comment"] }.find("Skybox"))   // MB Skybox will only map the texture,
-        obj->isSkybox = true;                       // no raytracing, see Scene::trace()
 
     scene.addObject(obj);
 

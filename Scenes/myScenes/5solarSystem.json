@@ -1,10 +1,10 @@
 {
-    "Eye": [200, 200, 1000],
+    "Eye": [0, 0, 1000],
     "Shadows": false,
     "MaxRecursionDepth": 2,
     "Lights": [
         {
-            "position": [90, 320, 100],
+            "position": [0, 0, 0],
             "color": [1, 1, 1]
         }
     ],
@@ -12,7 +12,7 @@
         {
             "type": "sphere",
             "comment": "Earth sphere",
-            "position": [200, 250, 400],
+            "position": [400, 0, 0],
             "radius": 50,
             "material":
             {
@@ -26,7 +26,7 @@
         {
             "type": "sphere",
             "comment": "Mars sphere",
-            "position": [400, 250, 400],
+            "position": [500, 0, 0],
             "radius": 50,
             "material":
             {
@@ -40,8 +40,8 @@
         {
             "type": "sphere",
             "comment": "Sun",
-            "position": [90, 320, 100],
-            "radius": 50,
+            "position": [0, 0, 0],
+            "radius": 200,
             "material":
             {
                 "color": [1.0, 1.0, 0.0],
@@ -53,14 +53,14 @@
         },
         {
             "type": "quad",
-            "comment": "Skybox1",
+            "comment": "Skybox ABFE front part",
             "v0": [-3000, -3000, 3000],    
             "v1": [3000, -3000, 3000],
-            "v2": [3000, -3000, -3000],
-            "v3": [-3000, -3000, -3000],
+            "v2": [3000, 3000, 3000],
+            "v3": [-3000, 3000, 3000],
             "material":
             {
-                "texture": "../textures/mars.png",
+                "texture": "../textures/SkyboxFront.png",
                 "ka": 0.2,
                 "kd": 0.8,
                 "ks": 0,
@@ -69,20 +69,51 @@
         },
         {
             "type": "quad",
-            "comment": "Skybox2",
-            "v0": [-3000, 3000, 3000],
-            "v1": [3000, 3000, 3000],
-            "v2": [3000, 3000, -3000],
+            "comment": "Skybox DAEH left part",
+            "v0": [-3000, -3000, -3000],   
+            "v1": [-3000, -3000, 3000],
+            "v2": [-3000, 3000, 3000],
             "v3": [-3000, 3000, -3000],
             "material":
             {
-                "texture": "../textures/mars.png",
+                "texture": "../textures/SkyboxLeft.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
+        },
+        {
+            "type": "quad",
+            "comment": "Skybox BCGF right part",
+            "v0": [3000, -3000, 3000],  
+            "v1": [3000, -3000, -3000],
+            "v2": [3000, 3000, -3000],
+            "v3": [3000, 3000, 3000],
+            "material":
+            {
+                "texture": "../textures/SkyboxRight.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
+        },
+        {
+            "type": "quad",
+            "comment": "Skybox CDHG back part",
+            "v0": [3000, -3000, -3000], 
+            "v1": [-3000, -3000, -3000],
+            "v2": [-3000, 3000, -3000],
+            "v3": [3000, 3000, -3000],
+            "material":
+            {
+                "texture": "../textures/SkyboxBack.png",
                 "ka": 0.2,
                 "kd": 0.8,
                 "ks": 0,
                 "n": 1
             }
         }
-        
     ]
 }
