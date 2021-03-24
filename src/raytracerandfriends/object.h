@@ -16,6 +16,9 @@ class Object
 {
     public:
         Material material;
+        bool isSkybox = false;                      // MB skybox won't experience
+                                                    // raytracing, only getting color at pixel
+                                                    // to reduce computational complexity
 
         virtual ~Object() = default;
 

@@ -46,3 +46,62 @@ void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot)
     // vec.z = same
 }
 // operates on ref of Vector obj
+
+#include <iostream>
+
+/*void upscaleSFImage(sf::Image &image)
+{
+    
+    int scalingFactor = UPSCALED / SIZE;
+    sf::Image upscale;
+    upscale.create(UPSCALED, UPSCALED);
+
+    sf::Color currentColor;
+
+    upscale.setPixel(0, 1, sf::Color{1,1,1});
+    
+    #pragma omp parallel for
+    for (int y = 0; y < SIZE; ++y)
+    {
+        for (int x = 0; x < SIZE; ++x)
+        {
+            currentColor = image.getPixel(x, y);
+            upscale.setPixel(scalingFactor * x, scalingFactor * y, currentColor);
+            upscale.setPixel(scalingFactor * x + 1, scalingFactor * y, currentColor);
+            upscale.setPixel(scalingFactor * x, scalingFactor * y + 1, currentColor);
+            upscale.setPixel(scalingFactor * x + 1, scalingFactor * y + 1, currentColor);
+        }
+    }
+    sf::Image smoothed;
+    smoothed.create(UPSCALED, UPSCALED);
+    int r, g, b;
+
+    // smooth all but the edges
+    #pragma omp parallel for
+    for (int y = 1; y < UPSCALED - 1; ++y)
+    {
+        for (int x = 1; x < UPSCALED - 1; ++x)
+        {
+            Color col;
+            currentColor = upscale.getPixel(x - 1, y);
+            col.r += currentColor.r;
+            col.g += currentColor.g;
+            col.b += currentColor.b;
+            currentColor = upscale.getPixel(x + 1, y);
+            col.r += currentColor.r;
+            col.g += currentColor.g;
+            col.b += currentColor.b;
+            currentColor = upscale.getPixel(x, y - 1);
+            col.r += currentColor.r;
+            col.g += currentColor.g;
+            col.b += currentColor.b;
+            currentColor = upscale.getPixel(x, y + 1);
+            col.r += currentColor.r;
+            col.g += currentColor.g;
+            col.b += currentColor.b;
+
+            smoothed.setPixel(x, y, sf::Color{ col.r / 4, col.g / 4, col.b / 4 });
+        }
+    }
+    image = smoothed;
+}*/

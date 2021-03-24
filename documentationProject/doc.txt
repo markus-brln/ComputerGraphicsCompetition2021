@@ -52,8 +52,44 @@ March 23
   the eye is at an appropriate position (e.g. not inside sphere)
 - virtual void checkCorrectEye(Point &eye) = 0; -> no crashing anymore when trying
   to move into a sphere
+  
+March 24
+- tried upscaling and smoothing, but no real performance gain + ugly + funny noise 
+  when using openMP on it
+- mapping textures to quad for skybox, added bool isSkybox to Object class
+  such that no reflection etc is applied to a Skybox -> faster
+- downloading images for milky way skybox and planets
 
-
-TODO: - make image bigger, smooth
-      - solar system simulation with gravity, skybox
+TODO: - solar system simulation with gravity, skybox
       - handle rotating around Z -> the camera vector
+      - circular path of planets
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

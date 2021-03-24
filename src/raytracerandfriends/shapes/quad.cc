@@ -55,5 +55,5 @@ Quad::Quad(Point const &v0,
 
 void Quad::checkCorrectEye(Point &eye)
 {
-    std::cout << "eye check not implemented";
+    //std::cout << "eye check not implemented";
 }

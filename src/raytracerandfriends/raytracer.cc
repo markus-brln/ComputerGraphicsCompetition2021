@@ -1,5 +1,4 @@
 #include "raytracer.h"
-#include "../globals.h"
 
 #include "image.h"
 #include "light.h"
@@ -22,6 +21,7 @@
 #include <exception>
 #include <fstream>
 #include <iostream>
+#include <string>           // MB
 
 using namespace std;        // no std:: required
 using json = nlohmann::json;
@@ -72,7 +72,12 @@ bool Raytracer::parseObjectNode(json const &node)
 
     // Parse material and add object to the scene
     obj->material = parseMaterialNode(node["material"]);
+
+    if (string{ node["comment"] }.find("Skybox"))   // MB Skybox will only map the texture,
+        obj->isSkybox = true;                       // no raytracing, see Scene::trace()
+
     scene.addObject(obj);
+
     return true;
 }
 
@@ -189,9 +194,7 @@ void Raytracer::renderToFile(string const &ofname)
 
 sf::Image Raytracer::renderToSFImage()
 {
-    // TODO: the size may be a settings in your file
     sf::Image img;        // construct SFML image
-
     img.create(SIZE, SIZE);
 
     //cout << "Tracing...\n";

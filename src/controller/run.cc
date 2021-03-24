@@ -12,28 +12,34 @@ void Controller::run()
     }
 
     sf::Clock Clock;                // for frame rate
-
+    sf::Event event;
+    sf::Image img;
+    sf::Texture texture;
+    sf::Sprite sprite;
 
     while (d_window.isOpen())
     {
-        sf::Event event;
         while (d_window.pollEvent(event))
-            handleEvent(event);
+            handleEvent(event);     // closing, reset
         
-        handleKeyPresses();
-
-        sf::Image img = d_raytracer.renderToSFImage();
-        sf::Texture texture;
+        handleKeyPresses();         // live input
+        
+        img = d_raytracer.renderToSFImage();
+        //std::cout << "hoi";
+        //upscaleSFImage(img);        // utils
+        //auto start = Clock.getElapsedTime().asMilliseconds();
         texture.loadFromImage(img);  //Load Texture from image
-        sf::Sprite sprite;
-        sprite.setTexture(texture);  
-        //cout << "rotation: " << d_raytracer.scene.getEyeRotation() << '\n';
+        
+        sprite.setTexture(texture);
         
         cout << "framerate: " <<  1000.0 / Clock.getElapsedTime().asMilliseconds() << '\n';
+        //cout << "time: " << Clock.getElapsedTime().asMilliseconds() - start << '\n';
+        
         Clock.restart();
-
-        d_window.clear();
+        //d_window.clear();     // not sure whether this is needed, probably not
+                                // since whole screen is refreshed
         d_window.draw(sprite);
         d_window.display();
+        
     }
 }

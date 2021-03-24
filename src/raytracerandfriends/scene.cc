@@ -91,6 +91,9 @@ Color Scene::trace(Ray const &ray, unsigned depth)
     if (material.hasTexture) {
         Vector uvVector = obj->toUV(hit);
         matColor = material.texture.colorAt(uvVector.x, 1.0 - uvVector.y);
+        if (obj->isSkybox)                  // MB stop reflection etc if the 
+            return matColor;                // object is part of the skybox 
+                                            // as determined in json under "comment": "Skybox..."
     } else {
         matColor = material.color;
     }
@@ -231,12 +234,13 @@ void Scene::checkCorrectEye()
 
 void Scene::renderToSFImage(sf::Image &img)
 {
-    // TODO check whether eye is inside sphere!
-    checkCorrectEye();
+    checkCorrectEye();                  // corrects eye position if in
+                                        // segfault-invoking position
+
 
     sf::Vector2u size = img.getSize();
     int w = size.x;
-    int h = size.y;
+    int h = size.y;                     // could be replaced by SIZE
 
 
     Vector down{ 0, -1, 0 };            // vector down from upperLeft

@@ -1,0 +1,72 @@
+{
+    "Eye": [200, 200, 1000],
+    "Shadows": false,
+    "MaxRecursionDepth": 2,
+    "Lights": [
+        {
+            "position": [90, 320, 100],
+            "color": [1, 1, 1]
+        }
+    ],
+    "Objects": [
+        {
+            "type": "sphere",
+            "comment": "Earth sphere",
+            "position": [200, 250, 400],
+            "radius": 50,
+            "material":
+            {
+                "texture": "../textures/earthmap1k.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "Mars sphere",
+            "position": [400, 250, 400],
+            "radius": 50,
+            "material":
+            {
+                "texture": "../textures/mars.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "Sun",
+            "position": [90, 320, 100],
+            "radius": 50,
+            "material":
+            {
+                "color": [1.0, 1.0, 0.0],
+                "ka": 1.0,
+                "kd": 0.7,
+                "ks": 0.0,
+                "n": 64
+            }
+        },
+        {
+            "type": "quad",
+            "comment": "Ground",
+            "v0": [-3000, -1000, -3000],
+            "v1": [3000, -1000, -3000],
+            "v2": [3000, -1000, 3000],
+            "v3": [-3000, -1000, 3000],
+            "material":
+            {
+                "texture": "../textures/mars.png",
+                "color": [0.9, 0.9, 0.9],
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
+        }
+    ]
+}
