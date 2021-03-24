@@ -1,0 +1,24 @@
+DESCRIPTION SKYBOX
+
+according to a cube that has ABCD as bottom
+and EFGH as top square
+
+Cube with 0,0,0 as centre and 6000 edge length:
+
+A [-3000, -3000, 3000],
+B [3000, -3000, 3000],
+C [3000, -3000, -3000],
+D [-3000, -3000, -3000],
+E [-3000, 3000, 3000],
+F [3000, 3000, 3000],
+G [3000, 3000, -3000],
+H [-3000, 3000, -3000],
+
+// order that the unwrapped cube squares need to have
+"Skybox ABFE front part"
+"Skybox DAEH left part"
+"Skybox BCGF right part"
+"Skybox CDHG back part"
+"Skybox DCBA bottom part"
+"Skybox EFGH top part"
+

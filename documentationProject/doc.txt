@@ -60,6 +60,7 @@ March 24
   such that no reflection etc is applied to a Skybox -> faster?
 - this helped with figuring out the box coords in 5SolarSystem.json
   https://learnopengl.com/Advanced-OpenGL/Cubemaps
+- divided skyblock "cross" into 6 images to directly map to Quads
 - downloading images for milky way skybox and planets
 
 - texture rotation by 90 degrees around x axis by shuffling around values in 

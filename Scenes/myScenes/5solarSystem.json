@@ -114,6 +114,38 @@
                 "ks": 0,
                 "n": 1
             }
+        },
+        {
+            "type": "quad",
+            "comment": "Skybox DCBA bottom part",
+            "v0": [-3000, -3000, -3000],
+            "v1": [3000, -3000, -3000],
+            "v2": [3000, -3000, 3000],
+            "v3": [-3000, -3000, 3000],
+            "material":
+            {
+                "texture": "../textures/SkyboxBottom.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
+        },
+        {
+            "type": "quad",
+            "comment": "Skybox EFGH top part",
+            "v0": [-3000, 3000, 3000],
+            "v1": [3000, 3000, 3000],
+            "v2": [3000, 3000, -3000],
+            "v3": [-3000, 3000, -3000],
+            "material":
+            {
+                "texture": "../textures/SkyboxTop.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
         }
     ]
 }
