@@ -4,6 +4,7 @@
 #include "../raytracerandfriends/raytracer.h"
 //#include <SFML/Graphics.hpp>
 #include "SFML/Graphics.hpp"
+#include "../raytracerandfriends/shapes/sphere.h"
 
 
 class Controller
@@ -18,6 +19,8 @@ class Controller
         void run();
         void handleEvent(sf::Event &event);
         void handleKeyPresses();
+
+        void configureSolarSystem();
 };
 
 

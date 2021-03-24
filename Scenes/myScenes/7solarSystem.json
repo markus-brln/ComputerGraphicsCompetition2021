@@ -16,7 +16,7 @@
             "radius": 200,
             "material":
             {
-                "color": [1.0, 1.0, 0.0],
+                "texture": "../textures/sun.png",
                 "ka": 1.0,
                 "kd": 0.7,
                 "ks": 0.0,
@@ -26,8 +26,8 @@
         {
             "type": "sphere",
             "comment": "mercury",
-            "position": [400, 0, 0],
-            "radius": 50,
+            "position": [300, 0, -100],
+            "radius": 24,
             "material":
             {
                 "texture": "../textures/mercury.png",
@@ -40,8 +40,8 @@
         {
             "type": "sphere",
             "comment": "venus",
-            "position": [500, 0, 0],
-            "radius": 50,
+            "position": [450, 0, -200],
+            "radius": 60,
             "material":
             {
                 "texture": "../textures/venus.png",
@@ -54,8 +54,8 @@
         {
             "type": "sphere",
             "comment": "Earth sphere",
-            "position": [600, 0, 0],
-            "radius": 50,
+            "position": [600, 0, -300],
+            "radius": 64,
             "material":
             {
                 "texture": "../textures/earth.png",
@@ -68,8 +68,8 @@
         {
             "type": "sphere",
             "comment": "moon",
-            "position": [700, 0, 0],
-            "radius": 50,
+            "position": [690, 0, -400],
+            "radius": 17,
             "material":
             {
                 "texture": "../textures/moon.png",
@@ -82,8 +82,8 @@
         {
             "type": "sphere",
             "comment": "Mars sphere",
-            "position": [800, 0, 0],
-            "radius": 50,
+            "position": [800, 0, -500],
+            "radius": 34,
             "material":
             {
                 "texture": "../textures/mars.png",
@@ -96,8 +96,8 @@
         {
             "type": "sphere",
             "comment": "jupiter",
-            "position": [900, 0, 0],
-            "radius": 50,
+            "position": [1600, 0, -600],
+            "radius": 669,
             "material":
             {
                 "texture": "../textures/jupiter.png",
@@ -110,8 +110,8 @@
         {
             "type": "sphere",
             "comment": "saturn",
-            "position": [1000, 0, 0],
-            "radius": 50,
+            "position": [2900, 0, -700],
+            "radius": 582,
             "material":
             {
                 "texture": "../textures/saturn.png",
@@ -124,8 +124,8 @@
         {
             "type": "sphere",
             "comment": "uranus",
-            "position": [1100, 0, 0],
-            "radius": 50,
+            "position": [3750, 0, -800],
+            "radius": 253,
             "material":
             {
                 "texture": "../textures/uranus.png",
@@ -138,8 +138,8 @@
         {
             "type": "sphere",
             "comment": "neptune",
-            "position": [1200, 0, 0],
-            "radius": 50,
+            "position": [4300, 0, -900],
+            "radius": 246,
             "material":
             {
                 "texture": "../textures/neptune.png",
@@ -152,8 +152,8 @@
         {
             "type": "sphere",
             "comment": "pluto",
-            "position": [1300, 0, 0],
-            "radius": 50,
+            "position": [4600, 0, -1000],
+            "radius": 12,
             "material":
             {
                 "texture": "../textures/pluto.png",
@@ -166,10 +166,10 @@
         {
             "type": "quad",
             "comment": "Skybox ABFE front part",
-            "v0": [-3000, -3000, 3000],    
-            "v1": [3000, -3000, 3000],
-            "v2": [3000, 3000, 3000],
-            "v3": [-3000, 3000, 3000],
+            "v0": [-10000, -10000, 10000],    
+            "v1": [10000, -10000, 10000],
+            "v2": [10000, 10000, 10000],
+            "v3": [-10000, 10000, 10000],
             "material":
             {
                 "texture": "../textures/SkyboxFront.png",
@@ -182,10 +182,10 @@
         {
             "type": "quad",
             "comment": "Skybox DAEH left part",
-            "v0": [-3000, -3000, -3000],   
-            "v1": [-3000, -3000, 3000],
-            "v2": [-3000, 3000, 3000],
-            "v3": [-3000, 3000, -3000],
+            "v0": [-10000, -10000, -10000],   
+            "v1": [-10000, -10000, 10000],
+            "v2": [-10000, 10000, 10000],
+            "v3": [-10000, 10000, -10000],
             "material":
             {
                 "texture": "../textures/SkyboxLeft.png",
@@ -198,10 +198,10 @@
         {
             "type": "quad",
             "comment": "Skybox BCGF right part",
-            "v0": [3000, -3000, 3000],  
-            "v1": [3000, -3000, -3000],
-            "v2": [3000, 3000, -3000],
-            "v3": [3000, 3000, 3000],
+            "v0": [10000, -10000, 10000],  
+            "v1": [10000, -10000, -10000],
+            "v2": [10000, 10000, -10000],
+            "v3": [10000, 10000, 10000],
             "material":
             {
                 "texture": "../textures/SkyboxRight.png",
@@ -214,10 +214,10 @@
         {
             "type": "quad",
             "comment": "Skybox CDHG back part",
-            "v0": [3000, -3000, -3000], 
-            "v1": [-3000, -3000, -3000],
-            "v2": [-3000, 3000, -3000],
-            "v3": [3000, 3000, -3000],
+            "v0": [10000, -10000, -10000], 
+            "v1": [-10000, -10000, -10000],
+            "v2": [-10000, 10000, -10000],
+            "v3": [10000, 10000, -10000],
             "material":
             {
                 "texture": "../textures/SkyboxBack.png",
@@ -230,10 +230,10 @@
         {
             "type": "quad",
             "comment": "Skybox DCBA bottom part",
-            "v0": [-3000, -3000, -3000],
-            "v1": [3000, -3000, -3000],
-            "v2": [3000, -3000, 3000],
-            "v3": [-3000, -3000, 3000],
+            "v0": [-10000, -10000, -10000],
+            "v1": [10000, -10000, -10000],
+            "v2": [10000, -10000, 10000],
+            "v3": [-10000, -10000, 10000],
             "material":
             {
                 "texture": "../textures/SkyboxBottom.png",
@@ -246,10 +246,10 @@
         {
             "type": "quad",
             "comment": "Skybox EFGH top part",
-            "v0": [-3000, 3000, 3000],
-            "v1": [3000, 3000, 3000],
-            "v2": [3000, 3000, -3000],
-            "v3": [-3000, 3000, -3000],
+            "v0": [-10000, 10000, 10000],
+            "v1": [10000, 10000, 10000],
+            "v2": [10000, 10000, -10000],
+            "v3": [-10000, 10000, -10000],
             "material":
             {
                 "texture": "../textures/SkyboxTop.png",

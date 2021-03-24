@@ -9,6 +9,8 @@
 #include "triple.h"
 
 #include <memory>
+//#include <string>
+
 class Object;
 typedef std::shared_ptr<Object> ObjectPtr;
 
@@ -19,6 +21,10 @@ class Object
         bool isSkybox = false;                      // MB skybox won't experience
                                                     // raytracing, only getting color at pixel
                                                     // to reduce computational complexity
+        //std::string objType;                        // MB 
+
+        //Point planetPosition;                       // MB specifically for planets
+        //size_t planetRadius;
 
         virtual ~Object() = default;
 

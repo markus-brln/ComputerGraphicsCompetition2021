@@ -8,7 +8,11 @@ controller/controller.ih.gch: controller/controller.ih \
  controller/../raytracerandfriends/material.h \
  controller/../raytracerandfriends/image.h \
  controller/../raytracerandfriends/hit.h \
- controller/../raytracerandfriends/ray.h
+ controller/../raytracerandfriends/ray.h \
+ controller/../raytracerandfriends/shapes/sphere.h \
+ controller/../raytracerandfriends/shapes/../object.h \
+ controller/../raytracerandfriends/shapes/../../utils/utils.h \
+ controller/../raytracerandfriends/shapes/../../utils/../raytracerandfriends/triple.h
 controller/controller.h:
 controller/../raytracerandfriends/raytracer.h:
 controller/../raytracerandfriends/scene.h:
@@ -20,3 +24,7 @@ controller/../raytracerandfriends/material.h:
 controller/../raytracerandfriends/image.h:
 controller/../raytracerandfriends/hit.h:
 controller/../raytracerandfriends/ray.h:
+controller/../raytracerandfriends/shapes/sphere.h:
+controller/../raytracerandfriends/shapes/../object.h:
+controller/../raytracerandfriends/shapes/../../utils/utils.h:
+controller/../raytracerandfriends/shapes/../../utils/../raytracerandfriends/triple.h:

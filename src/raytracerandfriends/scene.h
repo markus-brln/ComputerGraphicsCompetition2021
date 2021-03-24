@@ -68,6 +68,11 @@ class Scene
         }
         // MB returning references to the eye position&rotation
         // such that the controller can change them
+
+        std::vector<ObjectPtr> getObjects()
+        {
+            return objects;
+        }
         
         void setRenderShadows(bool renderShadows);
         void setRecursionDepth(unsigned depth);

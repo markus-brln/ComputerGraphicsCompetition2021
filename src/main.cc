@@ -10,12 +10,19 @@ std::string SCENE = "../Scenes/myScenes/7solarSystem.json";
 
 int main()
 {
-    // initialize raytracer
     Raytracer raytracer;
-
-    
     sf::RenderWindow window(sf::VideoMode(SIZE, SIZE), "SFML window");    // sf::Window is view in MVC pattern
     Controller controller{ raytracer, window };
+    
+    if (!raytracer.readScene(SCENE))
+    {
+        cerr << "Error: reading scene from " << 
+            " failed - no output generated.\n";
+        exit(-1);
+    }
+
+    //if (SCENE == "../Scenes/myScenes/7solarSystem.json")
+        //controller.configureSolarSystem();
 
     controller.run();
 

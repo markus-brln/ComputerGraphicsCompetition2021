@@ -4,7 +4,11 @@ main.o: main.cc main.ih.gch raytracerandfriends/raytracer.h \
  raytracerandfriends/object.h raytracerandfriends/material.h \
  raytracerandfriends/image.h raytracerandfriends/hit.h \
  raytracerandfriends/ray.h controller/controller.h \
- controller/../raytracerandfriends/raytracer.h
+ controller/../raytracerandfriends/raytracer.h \
+ controller/../raytracerandfriends/shapes/sphere.h \
+ controller/../raytracerandfriends/shapes/../object.h \
+ controller/../raytracerandfriends/shapes/../../utils/utils.h \
+ controller/../raytracerandfriends/shapes/../../utils/../raytracerandfriends/triple.h
 main.ih:
 raytracerandfriends/raytracer.h:
 raytracerandfriends/scene.h:
@@ -18,3 +22,7 @@ raytracerandfriends/hit.h:
 raytracerandfriends/ray.h:
 controller/controller.h:
 controller/../raytracerandfriends/raytracer.h:
+controller/../raytracerandfriends/shapes/sphere.h:
+controller/../raytracerandfriends/shapes/../object.h:
+controller/../raytracerandfriends/shapes/../../utils/utils.h:
+controller/../raytracerandfriends/shapes/../../utils/../raytracerandfriends/triple.h:

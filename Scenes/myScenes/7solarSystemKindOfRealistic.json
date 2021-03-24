@@ -1,0 +1,263 @@
+{
+    "Eye": [0, 0, 1000],
+    "Shadows": false,
+    "MaxRecursionDepth": 2,
+    "Lights": [
+        {
+            "position": [0, 0, 0],
+            "color": [1, 1, 1]
+        }
+    ],
+    "Objects": [
+        {
+            "type": "sphere",
+            "comment": "Sun",
+            "position": [0, 0, 0],
+            "radius": 20,
+            "material":
+            {
+                "texture": "../textures/sun.png",
+                "ka": 1.0,
+                "kd": 0.7,
+                "ks": 0.0,
+                "n": 64
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "mercury",
+            "position": [58, 0, 0],
+            "radius": 2.4,
+            "material":
+            {
+                "texture": "../textures/mercury.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "venus",
+            "position": [108, 0, 0],
+            "radius": 6.0,
+            "material":
+            {
+                "texture": "../textures/venus.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "Earth sphere",
+            "position": [150, 0, 0],
+            "radius": 6.4,
+            "material":
+            {
+                "texture": "../textures/earth.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "moon",
+            "position": [170, 0, 0],
+            "radius": 1.7,
+            "material":
+            {
+                "texture": "../textures/moon.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "Mars sphere",
+            "position": [228, 0, 0],
+            "radius": 34,
+            "material":
+            {
+                "texture": "../textures/mars.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "jupiter",
+            "position": [778, 0, 0],
+            "radius": 66.9,
+            "material":
+            {
+                "texture": "../textures/jupiter.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "saturn",
+            "position": [1434, 0, 0],
+            "radius": 58.2,
+            "material":
+            {
+                "texture": "../textures/saturn.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "uranus",
+            "position": [2871, 0, 0],
+            "radius": 25.3,
+            "material":
+            {
+                "texture": "../textures/uranus.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "neptune",
+            "position": [4495, 0, 0],
+            "radius": 24.6,
+            "material":
+            {
+                "texture": "../textures/neptune.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "sphere",
+            "comment": "pluto",
+            "position": [5906, 0, 0],
+            "radius": 1.2,
+            "material":
+            {
+                "texture": "../textures/pluto.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0.0,
+                "n": 1
+            }
+        },
+        {
+            "type": "quad",
+            "comment": "Skybox ABFE front part",
+            "v0": [-100000, -100000, 100000],    
+            "v1": [100000, -100000, 100000],
+            "v2": [100000, 100000, 100000],
+            "v3": [-100000, 100000, 100000],
+            "material":
+            {
+                "texture": "../textures/SkyboxFront.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
+        },
+        {
+            "type": "quad",
+            "comment": "Skybox DAEH left part",
+            "v0": [-100000, -100000, -100000],   
+            "v1": [-100000, -100000, 100000],
+            "v2": [-100000, 100000, 100000],
+            "v3": [-100000, 100000, -100000],
+            "material":
+            {
+                "texture": "../textures/SkyboxLeft.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
+        },
+        {
+            "type": "quad",
+            "comment": "Skybox BCGF right part",
+            "v0": [100000, -100000, 100000],  
+            "v1": [100000, -100000, -100000],
+            "v2": [100000, 100000, -100000],
+            "v3": [100000, 100000, 100000],
+            "material":
+            {
+                "texture": "../textures/SkyboxRight.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
+        },
+        {
+            "type": "quad",
+            "comment": "Skybox CDHG back part",
+            "v0": [100000, -100000, -100000], 
+            "v1": [-100000, -100000, -100000],
+            "v2": [-100000, 100000, -100000],
+            "v3": [100000, 100000, -100000],
+            "material":
+            {
+                "texture": "../textures/SkyboxBack.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
+        },
+        {
+            "type": "quad",
+            "comment": "Skybox DCBA bottom part",
+            "v0": [-100000, -100000, -100000],
+            "v1": [100000, -100000, -100000],
+            "v2": [100000, -100000, 100000],
+            "v3": [-100000, -100000, 100000],
+            "material":
+            {
+                "texture": "../textures/SkyboxBottom.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
+        },
+        {
+            "type": "quad",
+            "comment": "Skybox EFGH top part",
+            "v0": [-100000, 100000, 100000],
+            "v1": [100000, 100000, 100000],
+            "v2": [100000, 100000, -100000],
+            "v3": [-100000, 100000, -100000],
+            "material":
+            {
+                "texture": "../textures/SkyboxTop.png",
+                "ka": 0.2,
+                "kd": 0.8,
+                "ks": 0,
+                "n": 1
+            }
+        }
+    ]
+}

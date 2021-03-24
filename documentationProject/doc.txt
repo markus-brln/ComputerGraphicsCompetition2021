@@ -68,36 +68,10 @@ March 24
   double u = 0.5 + (atan2(x, z) / (2 * PI));
   double v = 1 - (acos(y / r) / PI);
 
+- got whole solar system working, set radius = real radius in km / 100,
+  so sizes realistic except for sun
+
 TODO: - solar system simulation with gravity, skybox
       - handle rotating around Z -> the camera vector
       - circular path of planets
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       

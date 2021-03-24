@@ -44,6 +44,7 @@ bool Raytracer::parseObjectNode(json const &node)
             Vector rotation(node["rotation"]);
             double angle = node["angle"];
             obj = ObjectPtr(new Sphere(pos, radius, rotation, angle));
+            
         }
         else
         {
@@ -57,9 +58,9 @@ bool Raytracer::parseObjectNode(json const &node)
         Point v2(node["v2"]);
         Point v3(node["v3"]);
         obj = ObjectPtr(new Quad(v0, v1, v2, v3));
-        
-        if (string{ node["comment"] }.find("Skybox"))   // MB Skybox will only map the texture,
-            obj->isSkybox = true;                       // no raytracing, see Scene::trace()
+        if (string{ node["comment"] }.find("Skybox") != std::string::npos)   
+            obj->isSkybox = true;               // MB Skybox will only map the texture,
+                                                // no raytracing, see Scene::trace()
 
     }
     else

@@ -3,14 +3,6 @@
 
 void Controller::run()
 {
-    // read the scene
-    if (!d_raytracer.readScene(SCENE))
-    {
-        cerr << "Error: reading scene from " << 
-            " failed - no output generated.\n";
-        return;
-    }
-
     sf::Clock Clock;                // for frame rate
     sf::Event event;
     sf::Image img;
