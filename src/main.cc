@@ -1,9 +1,9 @@
 #include "main.ih"
 
 // define globals
-int SIZE = 250;
+int SIZE = 300;
 //int UPSCALED = 2 * SIZE;
-std::string SCENE = "../Scenes/myScenes/5solarSystem.json";
+std::string SCENE = "../Scenes/myScenes/7solarSystem.json";
 //std::string SCENE = "../Scenes/myScenes/5.1earthAloneRotation.json";
 
 

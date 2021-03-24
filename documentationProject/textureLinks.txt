@@ -3,6 +3,7 @@ LINKS TO SKYBOX AND PLANET TEXTURES
 earth: included in CG course
 mars: https://www.pinterest.com/pin/17240411060139520/
 venus: https://www.deviantart.com/jcp-johncarlo/art/Venus-Cloud-Texture-Map-726936834
+mercury: http://planetpixelemporium.com/mercury.html
 
 skybox: https://forums.planetaryannihilation.com/threads/milky-way-skybox.72682/
 
