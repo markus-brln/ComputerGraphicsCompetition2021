@@ -32,6 +32,7 @@ sudo apt-get remove libsfml-dev
 
 
 **CONTROLS:**
+
 WASDQE     - forward/backward/left/right/up/down
 arrow keys - rotation around X and Z axis (look up/down/left/right)
 Spacebar   - start/pause solar system simulation, if using scene 7solarSystem.json
