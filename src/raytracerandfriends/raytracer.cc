@@ -50,6 +50,8 @@ bool Raytracer::parseObjectNode(json const &node)
         {
             obj = ObjectPtr(new Sphere(pos, radius));
         }
+        obj->objComment = node["comment"];      // MB enable to identify the sun for its lighting
+                                                // ignore its shadow, see Scene::lightObstructed()
     }
     else if (node["type"] == "quad")
     {
@@ -62,6 +64,7 @@ bool Raytracer::parseObjectNode(json const &node)
             obj->isSkybox = true;               // MB Skybox will only map the texture,
                                                 // no raytracing, see Scene::trace()
 
+        obj->objComment = node["comment"];
     }
     else
     {

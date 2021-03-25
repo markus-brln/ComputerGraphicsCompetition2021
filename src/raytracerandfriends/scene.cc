@@ -41,6 +41,8 @@ bool Scene::lightObstructed(LightPtr const &light, Point const &hit, Vector cons
 
     pair<ObjectPtr, Hit> mainhit = castRay(shadowRay);
     
+    if (mainhit.first->objComment == "Sun") // light not obstructed by Sun's sphere!
+        return false;
     
     if (!mainhit.first)      // first == object pointer, nullptr if no hit
         return false;                   // No hit? No obstruction.
@@ -92,9 +94,8 @@ Color Scene::trace(Ray const &ray, unsigned depth)
         Vector uvVector = obj->toUV(hit);
         matColor = material.texture.colorAt(uvVector.x, 1.0 - uvVector.y);
         if (obj->isSkybox)                  // MB stop reflection etc if the 
-        {
             return matColor;                // object is part of the skybox 
-        }                                    // as determined in json under "comment": "Skybox..."
+                                            // as determined in json under "comment": "Skybox..."
     } else {
         matColor = material.color;
     }
@@ -107,7 +108,7 @@ Color Scene::trace(Ray const &ray, unsigned depth)
     for (auto const &light : lights)
     {
         // OUR CODE BEGIN
-        if (renderShadows && lightObstructed(light, hit, shadingN))
+        if (renderShadows && lightObstructed(light, hit, shadingN))                  
             continue;
         // OUR CODE END
 
@@ -231,6 +232,62 @@ void Scene::checkCorrectEye()
 }
 // checks whether the eye is in a bad spot with respect to the object,
 // changes that if necessary (e.g. move outside a sphere)
+
+void Scene::SolarSystemSimStep()
+{
+    // Sun, Mercury, Venus, Earth, Moon (Earth), Mars, Jupiter, Saturn, Uranus, Neptune, Pluto
+    // 24 -> 2.400 km
+    vector<size_t> planetRadii{ 700, 24, 60, 64, 17, 34, 669, 582, 253, 246, 12 };
+
+    // 58 -> 58 million km
+    vector<size_t> planetDistances{ 0, 58, 108, 150, 150, 228, 778, 1434, 2871, 4495, 5906 };
+    
+    // from https://www.sjsu.edu/faculty/watkins/orbital.htm
+    vector<double> planetYearLengths{ 0, 0.24, 0.616, 1.0, 1.0, 1.9, 12.0, 29.5, 84, 165, 248 };
+   
+    vector<ObjectPtr> planets;
+
+    //d_raytracer.scene.getObjects()[0]->position;
+
+
+    // get all spheres that have a texture -> planet
+    for (ObjectPtr &planet : getObjects())
+    {
+        if (!planet->isSkybox && planet->material.hasTexture)
+            planets.push_back(planet);
+    }
+
+    double velocityMultiplier = 0;      // movement around sun according to 
+                                        // distance -> realistic
+    Vector fromSun;                     // to be rotated  
+
+    for (size_t idx = 0; idx < planets.size(); ++idx)
+    {
+        if (planets[idx]->position.length() == 0)
+            continue;                   // ignore the sun itself
+
+        if (idx == 4)                   // moon around the earth as well!
+        {
+            // get copy of earth
+            Vector earth = planets[3]->position;
+
+            Vector earthToMoon = planets[4]->position - earth;
+
+            // pre-rotate earth copy
+            velocityMultiplier = 1 / planetYearLengths[3];
+            rotateVector(earth, 0, 0.01 * velocityMultiplier, 0);
+
+            velocityMultiplier = 1 / (27.322 / 365.25);  // speed of moon around earth
+            rotateVector(earthToMoon, 0, 0.01 * velocityMultiplier, 0);
+
+            planets[4]->position = earth + earthToMoon;
+            continue;
+        }
+        velocityMultiplier = 1 / planetYearLengths[idx];
+                                        // rotate position around Y axis
+        rotateVector(planets[idx]->position, 0, 0.01 * velocityMultiplier, 0);
+    }
+}
 
 
 void Scene::renderToSFImage(sf::Image &img)

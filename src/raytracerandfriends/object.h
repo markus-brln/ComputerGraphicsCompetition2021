@@ -21,10 +21,11 @@ class Object
         bool isSkybox = false;                      // MB skybox won't experience
                                                     // raytracing, only getting color at pixel
                                                     // to reduce computational complexity
-        //std::string objType;                        // MB 
 
-        //Point planetPosition;                       // MB specifically for planets
-        //size_t planetRadius;
+        std::string objComment;                     // MB for sun we need special lighting
+                                                    // see Scene::lightObstructed()
+        Point position;                             // specifically for planets, moved from 
+                                                    // sphere class to here
 
         virtual ~Object() = default;
 

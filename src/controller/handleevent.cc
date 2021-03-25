@@ -15,6 +15,10 @@ void Controller::handleEvent(Event &event)
             d_raytracer.scene.getEye() = Vector{ 0, 0, 1000 };
             d_raytracer.scene.getEyeRotation() = Vector{};
             break;
+        
+        case (sf::Keyboard::Space):                 
+            SolarSystemSimOn = !SolarSystemSimOn;   // switch bool
+            break;
 
         default:
             break;

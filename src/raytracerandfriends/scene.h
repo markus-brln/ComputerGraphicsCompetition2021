@@ -73,6 +73,8 @@ class Scene
         {
             return objects;
         }
+
+        void SolarSystemSimStep();
         
         void setRenderShadows(bool renderShadows);
         void setRecursionDepth(unsigned depth);

@@ -16,7 +16,7 @@ class Sphere: public Object
         Vector toUV(Point const &hit) override;
         void checkCorrectEye(Point &eye) override;       // MB
 
-        Point const position;
+        //Point position;
         double const r;
         Vector const axis;
         double const angle;

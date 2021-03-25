@@ -16,6 +16,9 @@ void Controller::run()
         
         handleKeyPresses();         // live input
         
+        if (SolarSystemSimOn && SCENE == "../Scenes/myScenes/7solarSystem.json")
+            d_raytracer.scene.SolarSystemSimStep();
+        
         img = d_raytracer.renderToSFImage();
         //std::cout << "hoi";
         //upscaleSFImage(img);        // utils

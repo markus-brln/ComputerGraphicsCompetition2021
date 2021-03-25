@@ -57,11 +57,14 @@ Vector Sphere::toUV(Point const &hit)
 Sphere::Sphere(Point const &pos, double radius, Vector const& axis, double angle)
 :
     // Feel free to modify this constructor.
-    position(pos),
+    //position(pos),
     r(radius),
     axis(axis),
     angle(angle)
-{}
+{
+    this->position = pos;       // MB member moved to base class to change
+                                // it in Scene
+}
 
 void Sphere::checkCorrectEye(Point &eye)
 {

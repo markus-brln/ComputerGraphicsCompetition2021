@@ -12,6 +12,7 @@ using namespace std;
 extern int SIZE;
 //extern int UPSCALED;
 extern string SCENE;
+extern bool SolarSystemSimOn;
 
 
 // USEFUL FUNCTIONS

@@ -71,7 +71,15 @@ March 24
 - got whole solar system working, set radius = real radius in km / 100,
   so sizes realistic except for sun
 
-TODO: - solar system simulation with gravity, skybox
+March 25
+- implemented rotation of planets around sun + moon around earth
+  void Scene::SolarSystemSimStep(), activated/paused when pressing Space
+- Raytracer::parseObjectNode() adds comment string to Object, so that in
+  Scene::lightObstructed() the light is not obstructed by the sun -> shadows
+  on planets!
+  
+
+TODO: 
       - handle rotating around Z -> the camera vector
-      - circular path of planets
+
       
