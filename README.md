@@ -21,7 +21,8 @@ sudo apt-get install build-essential
 2. Descend into src/
 
 3. Build the executable:
-The Makefile already contains the compile flags mentioned above
+
+The Makefile already contains the compile flags mentioned above.
 
 make [-jX] 
 where X is the amount of jobs, for example equal to your CPU core count.
