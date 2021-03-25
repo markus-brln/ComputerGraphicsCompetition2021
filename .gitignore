@@ -1,4 +1,5 @@
 src/generated_deps/*
+.vscode 
 
 # Prerequisites
 *.d
