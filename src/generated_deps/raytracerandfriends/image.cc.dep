@@ -1,7 +1,0 @@
-raytracerandfriends/image.o: raytracerandfriends/image.cc \
- raytracerandfriends/image.h raytracerandfriends/triple.h \
- raytracerandfriends/json/json_fwd.h raytracerandfriends/lode/lodepng.h
-raytracerandfriends/image.h:
-raytracerandfriends/triple.h:
-raytracerandfriends/json/json_fwd.h:
-raytracerandfriends/lode/lodepng.h:
