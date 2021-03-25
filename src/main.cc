@@ -2,8 +2,7 @@
 
 // define globals
 int SIZE = 300;
-bool SolarSystemSimOn = false;
-//int UPSCALED = 2 * SIZE;
+bool SolarSystemSimOn = false;          // at start no planet movement, press Space to start
 std::string SCENE = "../Scenes/myScenes/7solarSystem.json";
 //std::string SCENE = "../Scenes/myScenes/8fancy.json";
 //std::string SCENE = "../Scenes/myScenes/5.1earthAloneRotation.json";
@@ -13,7 +12,7 @@ std::string SCENE = "../Scenes/myScenes/7solarSystem.json";
 int main()
 {
     Raytracer raytracer;
-    sf::RenderWindow window(sf::VideoMode(SIZE, SIZE), "SFML window");    // sf::Window is view in MVC pattern
+    sf::RenderWindow window(sf::VideoMode(SIZE, SIZE), "Raytracing");    // sf::Window is view in MVC pattern
     Controller controller{ raytracer, window };
     
     if (!raytracer.readScene(SCENE))
@@ -22,9 +21,6 @@ int main()
             " failed - no output generated.\n";
         exit(-1);
     }
-
-    //if (SCENE == "../Scenes/myScenes/7solarSystem.json")
-    //    controller.d_raytracer configureSolarSystem();
 
     controller.run();
 
