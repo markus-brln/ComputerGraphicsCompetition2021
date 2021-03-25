@@ -60,11 +60,13 @@ bool Raytracer::parseObjectNode(json const &node)
         Point v2(node["v2"]);
         Point v3(node["v3"]);
         obj = ObjectPtr(new Quad(v0, v1, v2, v3));
-        if (string{ node["comment"] }.find("Skybox") != std::string::npos)   
+        obj->objComment = node["comment"];
+        
+        if (obj->objComment.find("Skybox") != std::string::npos)   
             obj->isSkybox = true;               // MB Skybox will only map the texture,
                                                 // no raytracing, see Scene::trace()
 
-        obj->objComment = node["comment"];
+        
     }
     else
     {
@@ -163,7 +165,7 @@ try
         bool shadows = jsonscene["Shadows"];
         scene.setRenderShadows(shadows);
     }
-
+    
     for (auto const &lightNode : jsonscene["Lights"])
         scene.addLight(parseLightNode(lightNode));
 
@@ -171,7 +173,7 @@ try
     for (auto const &objectNode : jsonscene["Objects"])
         if (parseObjectNode(objectNode))
             ++objCount;
-
+    
     cout << "Parsed " << objCount << " objects.\n";
 
 // =============================================================================

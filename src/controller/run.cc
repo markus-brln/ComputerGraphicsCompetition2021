@@ -15,11 +15,14 @@ void Controller::run()
             handleEvent(event);     // closing, reset
         
         handleKeyPresses();         // live input
+
+        
         
         if (SolarSystemSimOn && SCENE == "../Scenes/myScenes/7solarSystem.json")
             d_raytracer.scene.SolarSystemSimStep();
         
         img = d_raytracer.renderToSFImage();
+        
         //std::cout << "hoi";
         //upscaleSFImage(img);        // utils
         //auto start = Clock.getElapsedTime().asMilliseconds();

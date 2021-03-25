@@ -35,18 +35,15 @@ bool Scene::lightObstructed(LightPtr const &light, Point const &hit, Vector cons
 {
                                         // from the hitpoint + some N dir to view
     Point hoveringHit = hit + epsilon * normalFromObj;
-
-
     Ray shadowRay = Ray{ hoveringHit, light->position - hoveringHit};
-
     pair<ObjectPtr, Hit> mainhit = castRay(shadowRay);
     
-    if (mainhit.first->objComment == "Sun") // light not obstructed by Sun's sphere!
-        return false;
     
-    if (!mainhit.first)      // first == object pointer, nullptr if no hit
+    if (!mainhit.first)                 // first == object pointer, nullptr if no hit
         return false;                   // No hit? No obstruction.
 
+    if (mainhit.first->objComment == "Sun") // light not obstructed by Sun's sphere!
+        return false;
 
     Point objHitPoint = shadowRay.O + mainhit.second.t * shadowRay.D;
     if (distance3D(light->position, hoveringHit) < distance3D(objHitPoint, hoveringHit))
@@ -315,6 +312,7 @@ void Scene::renderToSFImage(sf::Image &img)
 
     # pragma omp parallel for
     for (int y = 0; y < h; ++y)
+    {
         for (int x = 0; x < w; ++x)
         {
             Point pixel = screenCentre + (x - SIZE/2) * right + (y - SIZE/2) * down;
@@ -323,13 +321,25 @@ void Scene::renderToSFImage(sf::Image &img)
             //cout << pixel << '\n';
             //cout << (x - SIZE/2) * right << '\n';
 
+
             Ray ray(eye, (pixel - eye).normalized());
             Color col = trace(ray, recursionDepth);
+
+           
             col.clamp();
             // MB some conversion problems here, but whatever..
-            img.setPixel(x, y, sf::Color{ col.r * 255,  col.g * 255, col.b * 255 });
-
+            img.setPixel(x, y, sf::Color{ static_cast<sf::Uint8>(col.r * 255),  
+                                          static_cast<sf::Uint8>(col.g * 255), 
+                                          static_cast<sf::Uint8>(col.b * 255) 
+                                        }
+            );
+            //cout << x << ' '; 
         }
+        //cout << '\n' << y << '\n';
+        
+    }
+    
+    
 }
 // MB rewritten render function
 

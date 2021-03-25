@@ -13,6 +13,8 @@ int main()
 {
     Raytracer raytracer;
     sf::RenderWindow window(sf::VideoMode(SIZE, SIZE), "Raytracing");    // sf::Window is view in MVC pattern
+    
+    
     Controller controller{ raytracer, window };
     
     if (!raytracer.readScene(SCENE))
@@ -21,7 +23,6 @@ int main()
             " failed - no output generated.\n";
         exit(-1);
     }
-
     controller.run();
 
     return 0;
