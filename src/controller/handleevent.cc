@@ -11,10 +11,10 @@ void Controller::handleEvent(Event &event)
         switch (event.key.code)
         {
         // Reset
-        case (sf::Keyboard::Backspace):
-            d_raytracer.scene.getEye() = Vector{ 0, 0, 1000 };
-            d_raytracer.scene.getEyeRotation() = Vector{};
-            break;
+        //case (sf::Keyboard::Backspace):
+        //    d_raytracer.scene.getEye() = Vector{ 0, 0, 2000 };
+        //    d_raytracer.scene.getEyeRotation() = Vector{ 0, 0, 0 };
+        //    break;
         
         case (sf::Keyboard::Space):                 
             SolarSystemSimOn = !SolarSystemSimOn;   // switch bool

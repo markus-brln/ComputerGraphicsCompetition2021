@@ -45,7 +45,6 @@ arrow keys - rotation around X and Z axis (look up/down/left/right)
 Spacebar   - start/pause solar system simulation, if using scene "../Scenes/myScenes/7solarSystem.json".
 
 
-
 **MODIFY YOURSELF**:
 1. Change the scene selection:
 
@@ -53,7 +52,7 @@ Modify the global SCENE in main.cc: "../Scenes/yourFolder/yourScene.json".
 
 2. Modify a scene:
 
-Change the .json files by yourself. Look at the existing scenes for inspiration.
+Change the .json files by yourself. You can look at the existing scenes for inspiration.
 
 
 

@@ -4,6 +4,7 @@
 #include "../raytracerandfriends/triple.h"
 #include <cmath>
 #include <string>
+#include <iostream>
 #include <SFML/Graphics.hpp>
 
 using namespace std;
@@ -20,6 +21,7 @@ extern bool SolarSystemSimOn;
 double distance3D(Triple t1, Triple t2);
 double angle(Triple a, Triple b);
 void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot);
-void upscaleSFImage(sf::Image &image);
+void chooseScene();
+void upscaleSFImage(sf::Image &image);      // failed attempt
 
 #endif

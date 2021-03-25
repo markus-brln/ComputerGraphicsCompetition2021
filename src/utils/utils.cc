@@ -47,12 +47,38 @@ void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot)
 }
 // operates on ref of Vector obj
 
-#include <iostream>
 
-/*void upscaleSFImage(sf::Image &image)
+void chooseScene()
 {
+    cout << "Enter the number of these scenes or write the relative path of your own.\n";
+    vector<string> myScenes { "1basic", "2earth", "3mixed", "4sun",
+                              "5earthAloneRotation", "6skyboxOnly", "7solSysRealDistProportions",
+                              "8fancy", "9solarSystem" };
     
-    int scalingFactor = UPSCALED / SIZE;
+    for (auto scene : myScenes)
+        cout << "\"../Scenes/myScenes/" + scene + ".json\"\n";
+    
+    string userInput;
+    getline(cin, userInput);
+
+    size_t szeneNum = 9;
+    try 
+    {
+        szeneNum = stoi(userInput);
+        
+        SCENE = "../Scenes/myScenes/" + myScenes[szeneNum - 1] + ".json";
+    }
+    catch (...)
+    {
+        SCENE = userInput;
+    }
+}
+// ask user for scene, pick from standard or input own relative path
+
+
+void upscaleSFImage(sf::Image &image)
+{
+    /*int scalingFactor = UPSCALED / SIZE;
     sf::Image upscale;
     upscale.create(UPSCALED, UPSCALED);
 
@@ -104,4 +130,7 @@ void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot)
         }
     }
     image = smoothed;
-}*/
+    */
+}
+// failed attempt to upscale+smooth the picture to reduce
+// computations
