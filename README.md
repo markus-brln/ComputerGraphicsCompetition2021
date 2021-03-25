@@ -5,7 +5,9 @@
 
 **Prerequisites:**
 
-- SFML library
+- SFML library 
+  -> use flags when compiling without provided Makefile: -lsfml-graphics -lsfml-window -lsfml-system 
+- OpenMP very much recommended -> flags:                 -fopenmp
 
 
 **Linux (Ubuntu):**
@@ -19,6 +21,8 @@ sudo apt-get install build-essential
 2. Descend into src/
 
 3. Build the executable:
+
+The Makefile already contains the compile flags mentioned above.
 
 make [-jX] 
 where X is the amount of jobs, for example equal to your CPU core count.
