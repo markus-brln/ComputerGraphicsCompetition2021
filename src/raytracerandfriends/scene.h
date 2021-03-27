@@ -25,6 +25,9 @@ class Scene
     Point eye;
     Vector eyeRotation;                 // MB 
     Vector d_camera;
+    double d_zoom = 1.0;                // determines how far away the
+                                        // imaginary screen -> changes 
+                                        // angle of field of view
 
     bool renderShadows;
     unsigned recursionDepth;
@@ -75,6 +78,18 @@ class Scene
         }
 
         void SolarSystemSimStep();
+
+        void zoom(double value)
+        {
+            d_zoom *=value;
+        }
+        // exponential change in zoom value -> steady zoom for eye
+        
+        double getZoom()
+        {
+            return d_zoom;
+        }
+        
         
         void setRenderShadows(bool renderShadows);
         void setRecursionDepth(unsigned depth);

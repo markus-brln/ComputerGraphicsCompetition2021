@@ -96,12 +96,14 @@ the project yourself that may or may not apply to other distros.
 
 ## Controls:
 
-WASDQE     - forward/backward/left/right/up/down
+WASDQE            - forward/backward/left/right/up/down
 
-arrow keys - rotation around X and Z axis (look up/down/left/right)
+arrow keys        - rotation around X and Z axis (look up/down/left/right)
 
-Spacebar   - start/pause solar system simulation, if using scene "../Scenes/myScenes/9solarSystem.json".
-             (to be honest, I kind of hardcoded that into Controller::run() :) )
+Numpad plus/minus - zoom in/out
+
+Spacebar          - start/pause solar system simulation, if using scene "../Scenes/myScenes/9solarSystem.json".
+                  (to be honest, I kind of hardcoded that into Controller::run() :) )
 
 
 ## Modify Scene files:

@@ -304,7 +304,7 @@ void Scene::renderToSFImage(sf::Image &img)
     rotateVector(right, eyeRotation.x, eyeRotation.y, eyeRotation.z);
 
     Vector d_camera = right.cross(down);  // use the camera vector to get the pixels
-    Point screenCentre = eye + d_camera * SIZE;
+    Point screenCentre = eye + d_camera * SIZE * 1/d_zoom;
     //cout << "eye: " << eye << '\n';
     //cout << "down: " << down << '\n';
     //cout << "right: " << right << '\n';

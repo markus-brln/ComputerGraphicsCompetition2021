@@ -3,6 +3,7 @@
 
 void Controller::handleKeyPresses()
 {
+    // Translation
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
         d_raytracer.scene.translateEye(0, 0, -30);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
@@ -15,14 +16,24 @@ void Controller::handleKeyPresses()
         d_raytracer.scene.translateEye(0, 30, 0);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
         d_raytracer.scene.translateEye(0, -30, 0);
+
+    // Rotation (taking zoom into account)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        d_raytracer.scene.getEyeRotation().x += 0.05;
+        d_raytracer.scene.getEyeRotation().x += 0.05 * d_raytracer.scene.getZoom();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        d_raytracer.scene.getEyeRotation().x -= 0.05;
+        d_raytracer.scene.getEyeRotation().x -= 0.05 * d_raytracer.scene.getZoom();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        d_raytracer.scene.getEyeRotation().y += 0.05;
+        d_raytracer.scene.getEyeRotation().y += 0.05 * d_raytracer.scene.getZoom();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        d_raytracer.scene.getEyeRotation().y -= 0.05;
+        d_raytracer.scene.getEyeRotation().y -= 0.05 * d_raytracer.scene.getZoom();
+
+    // Zoom
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Add))
+        d_raytracer.scene.zoom(0.95);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Subtract))
+        d_raytracer.scene.zoom(1.05);
+
+    
     // for now not active, would require even more rotation I think
     //if (sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1))
     //    d_raytracer.scene.getEyeRotation().z -= 0.05;
