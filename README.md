@@ -8,7 +8,11 @@ and building scenes such as a "simulation" of the solar system.
 You can find a more detailed description of the process under
 documentationProject/doc.txt.
 
-
+1. Item 1
+1. Item 2
+1. Item 3
+   1. Item 3a
+   1. Item 3b
 
 ## HOW TO COMPILE:
 
