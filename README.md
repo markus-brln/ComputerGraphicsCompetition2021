@@ -1,7 +1,7 @@
 # Computer Graphics Competition 2021 - Raytracing 
 
 This project builds upon the code provided in the Computer Graphics course
-at the University of Groningen, which can mainly be found in src/raytracerandfriends.  
+at the University of Groningen, which can mainly be found in src/raytracerandfriends.
 My contribution is introducing proper perspective to the raytracer, 
 allowing the camera to move, displaying raytraced images to a window
 and building scenes such as a "simulation" of the solar system.  
