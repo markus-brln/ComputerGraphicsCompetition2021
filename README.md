@@ -5,9 +5,12 @@ at the University of Groningen, which can mainly be found in src/raytracerandfri
 My contribution is introducing proper perspective to the raytracer, 
 allowing the camera to move, displaying raytraced images to a window
 and building scenes such as a "simulation" of the solar system.
+
 You can find a more detailed description of the process under
 documentationProject/doc.txt.
+
 Videos of different stages of the project can be found in this playlist:
+
 https://www.youtube.com/watch?v=6rHRHlJg37s&list=PL7uXyOTDLR1gYDpTEuKeJiKMgc_PqlTov&index=1
 
 
