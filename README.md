@@ -65,17 +65,18 @@ the project yourself that may or may not apply to other distros.
 
 
 **2. What I did when developing**
-   1. Install SFML:
-   sudo apt-get install libsfml-dev
+
+   1. Install SFML for your own projects
+   ```sudo apt-get install libsfml-dev```
 
    1.1 Install gnu make, if necessary:
-   sudo apt-get install build-essential
+   ```sudo apt-get install build-essential```
 
    2. Descend into src/
 
    3. Build the executable:
 
-   The Makefile already contains the compile flags mentioned above.
+   The Makefile already contains the compile flags mentioned above. It is written such that only modified sources are recompiled.
 
    make [-jX] 
    where X is the amount of jobs, for example equal to your CPU core count.
@@ -96,6 +97,7 @@ WASDQE     - forward/backward/left/right/up/down
 arrow keys - rotation around X and Z axis (look up/down/left/right)
 
 Spacebar   - start/pause solar system simulation, if using scene "../Scenes/myScenes/9solarSystem.json".
+             (to be honest, I kind of hardcoded that into Controller::run() :) )
 
 
 ## Modify Scene files:
@@ -105,8 +107,9 @@ Change the .json files by yourself. You can look at the existing scenes for insp
 
 ## Credits
 
-* SFML library used for keyboard 
-
+- SFML library used for keyboard input and display output, which is as easy as pygame https://www.sfml-dev.org/
+- Teaching Assistant Boris that helped me with compiling on Windows 10
+- Jurjen Bokma from the C++ Course for the Makefile that probably saved me like an hour in compile time (and will continue to do so in my future C++ projects...)
 
 
 
