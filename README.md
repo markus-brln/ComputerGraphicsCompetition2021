@@ -9,6 +9,14 @@
   -> use flags when compiling without provided Makefile: -lsfml-graphics -lsfml-window -lsfml-system 
 - OpenMP very much recommended -> flags:                 -fopenmp
 
+**Windows 10**
+
+1. Install Mingw compiler
+
+1.1 follow mingw install instructions on https://code.visualstudio.com/docs/cpp/config-mingw
+1.2 download mingw installer: https://sourceforge.net/projects/mingw-w64/
+1.3 don't forget to switch to x86_64 architechture
+
 
 **Linux (Ubuntu):**
 
