@@ -1,15 +1,18 @@
-# Computer Graphics Competition 2021
-# Raytracing 
+# Computer Graphics Competition 2021 - Raytracing 
 
-**HOW TO COMPILE:**
+This project builds upon the code provided in the Computer Graphics course
+at the University of Groningen, which can mainly be found in src/raytracerandfriends.
+My contribution is introducing proper perspective to the raytracer, 
+allowing the camera to move, displaying raytraced images to a window
+and building scenes such as a "simulation" of the solar system.
+You can find a more detailed description of the process under
+documentationProject/doc.txt.
 
-**Prerequisites:**
 
-- SFML library 
-  -> use flags when compiling without provided Makefile: -lsfml-graphics -lsfml-window -lsfml-system 
-- OpenMP very much recommended -> flags:                 -fopenmp
 
-**Windows 10**
+## HOW TO COMPILE:
+
+### Windows 10
 
 1. Install Mingw 8.1.0 compiler if you don't have a compiler yet
 
@@ -26,7 +29,11 @@ in scr/ execute:
 
 g++ -o main.exe -std=c++2a -I. -L lib  *.cc controller/*.cc utils/*.cc raytracerandfriends/*.cc  raytracerandfriends/lode/*.cc raytracerandfriends/shapes/*.cc  -lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp
 
-**Linux (Ubuntu):**
+### Linux (Ubuntu):
+
+#### 
+g++ -o main -std=c++2a -I. -L lib/linux  *.cc controller/*.cc utils/*.cc raytracerandfriends/*.cc  raytracerandfriends/lode/*.cc raytracerandfriends/shapes/*.cc  -lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp
+
 
 1. Install SFML:
 sudo apt-get install libsfml-dev
@@ -71,7 +78,9 @@ Modify the global SCENE in main.cc: "../Scenes/yourFolder/yourScene.json".
 Change the .json files by yourself. You can look at the existing scenes for inspiration.
 
 
+## Credits
 
+* SFML library used for keyboard 
 
 
 
