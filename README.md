@@ -119,6 +119,12 @@ Change the .json files by yourself. You can look at the existing scenes for insp
 
 
 
+## Extra: how to use a library like SFML
+
+- copy content of include directory (SFML) to src (in this case it's the same for Linux and Windows)  
+- from bin/ copy files (dynamic link libraries) to src  
+- copy lib to lib/windows or lib/linux  
+![librarySetup](https://user-images.githubusercontent.com/56026631/112718740-39a24680-8ef5-11eb-91f4-1e59d65bbe47.png)
 
 
 
