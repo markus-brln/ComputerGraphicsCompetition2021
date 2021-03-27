@@ -1,6 +1,0 @@
-src/raytracerandfriends/triple.o: src/raytracerandfriends/triple.cc \
- src/raytracerandfriends/triple.h src/raytracerandfriends/json/json_fwd.h \
- src/raytracerandfriends/json/json.h
-src/raytracerandfriends/triple.h:
-src/raytracerandfriends/json/json_fwd.h:
-src/raytracerandfriends/json/json.h:

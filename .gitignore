@@ -1,4 +1,4 @@
-src/generated_deps/*
+src/generated_deps/
 .vscode 
 
 # Prerequisites

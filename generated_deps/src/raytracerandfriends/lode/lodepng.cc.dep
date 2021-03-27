@@ -1,4 +1,0 @@
-src/raytracerandfriends/lode/lodepng.o: \
- src/raytracerandfriends/lode/lodepng.cc \
- src/raytracerandfriends/lode/lodepng.h
-src/raytracerandfriends/lode/lodepng.h:

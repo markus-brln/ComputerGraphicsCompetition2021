@@ -1,4 +1,0 @@
-src/raytracerandfriends/shapes/solvers.o: \
- src/raytracerandfriends/shapes/solvers.cc \
- src/raytracerandfriends/shapes/solvers.h
-src/raytracerandfriends/shapes/solvers.h:
