@@ -16,7 +16,8 @@ https://www.youtube.com/watch?v=6rHRHlJg37s&list=PL7uXyOTDLR1gYDpTEuKeJiKMgc_Pql
 
 ![bshadowsHighRes](https://user-images.githubusercontent.com/56026631/112717810-2b512c00-8eef-11eb-8249-38791959a4d2.png)
 Doesn't Jupiter look majestic? (At this window size the program does ***not*** run smoothly. Modify SIZE in main.cc to adapt 
-it do your wishes.)
+it to your wishes.)
+
 
 ## Try out yourself:
 
