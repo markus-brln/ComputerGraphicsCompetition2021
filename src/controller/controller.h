@@ -1,16 +1,15 @@
 #ifndef VIEW_H
 #define VIEW_H
 
+#include <SFML/Graphics.hpp>
 #include "../raytracerandfriends/raytracer.h"
-//#include <SFML/Graphics.hpp>
-#include "SFML/Graphics.hpp"
 #include "../raytracerandfriends/shapes/sphere.h"
 
 
 class Controller
 {
     Raytracer &d_raytracer;             // all data members with d_...
-    sf::RenderWindow &d_window;               // sf::Window == view in MVC pattern
+    sf::RenderWindow &d_window;         // sf::Window == view in MVC pattern
 
     public:
         Controller() = delete;
@@ -21,6 +20,7 @@ class Controller
         void handleKeyPresses();
 
         void configureSolarSystem();
+        sf::Text createText();
 };
 
 

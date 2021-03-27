@@ -1,5 +1,6 @@
 #include "controller.ih"
 
+// this info is encoded in 9solarSystem.json now
 
 /*void Controller::configureSolarSystem()
 {

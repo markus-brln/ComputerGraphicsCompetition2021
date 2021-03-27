@@ -5,7 +5,6 @@ void Controller::handleKeyPresses()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
         d_raytracer.scene.translateEye(0, 0, -30);
-
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         d_raytracer.scene.translateEye(0, 0, 30);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
