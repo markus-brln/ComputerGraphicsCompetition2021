@@ -18,7 +18,7 @@ void Controller::run()
 
         
         
-        if (SolarSystemSimOn && SCENE == "../Scenes/myScenes/7solarSystem.json")
+        if (SolarSystemSimOn && SCENE == "../Scenes/myScenes/9solarSystem.json")
             d_raytracer.scene.SolarSystemSimStep();
         
         img = d_raytracer.renderToSFImage();

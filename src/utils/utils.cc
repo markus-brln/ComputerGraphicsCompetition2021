@@ -15,7 +15,7 @@ double angle(Triple a, Triple b)
 
 void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot)
 {
-    // ACII way of writing the matrices & vectors down taken from:
+    // ASCII way of writing the matrices & vectors down taken from:
     // https://stackoverflow.com/questions/14607640/rotating-a-vector-in-3d-space
 
     // rotation around x
@@ -50,14 +50,16 @@ void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot)
 
 void chooseScene()
 {
-    cout << "Enter the number of these scenes or write the relative path of your own.\n";
     vector<string> myScenes { "1basic", "2earth", "3mixed", "4sun",
                               "5earthAloneRotation", "6skyboxOnly", "7solSysRealDistProportions",
                               "8fancy", "9solarSystem" };
-    
+        cout << "Scenes constructed by me:\n";
+
     for (auto scene : myScenes)
         cout << "\"../Scenes/myScenes/" + scene + ".json\"\n";
     
+    cout << "Enter the number of these scenes or write the relative path of your own.\n\n";
+
     string userInput;
     getline(cin, userInput);
 

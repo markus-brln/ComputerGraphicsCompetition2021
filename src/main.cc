@@ -1,14 +1,9 @@
 #include "main.ih"
 
 // define globals
-int SIZE = 300;
-bool SolarSystemSimOn = false;          // at start no planet movement, press Space to start
-
-// try out different scenes
-//std::string SCENE = "../Scenes/myScenes/7solarSystem.json";
-//std::string SCENE = "../Scenes/myScenes/8fancy.json";
-//std::string SCENE = "../Scenes/myScenes/5earthAloneRotation.json";
-std::string SCENE = "../Scenes/myScenes/3mixed.json";
+int SIZE = 1000;
+bool SolarSystemSimOn = false;           // at start no planet movement, press Space to start
+std::string SCENE = string{};           // a global needs to be defined
 
 
 int main()
