@@ -30,7 +30,7 @@ the program, simply run ```main.exe``` in the src directory.
 
 1. Install Mingw 8.1.0 compiler if you don't have a compiler yet.
 
-   1.1 follow Mingw install instructions on https://code.visualstudio.com/docs/cpp/config-mingw
+   1.1 follow Mingw install instructions on https://code.visualstudio.com/docs/cpp/config-mingw  
       [download Mingw installer: https://sourceforge.net/projects/mingw-w64/ ]  
    1.2 don't forget to switch to x86_64 architechture  
    1.3 don't forget to add Mingw's bin folder to PATH, as described in 1.1  
