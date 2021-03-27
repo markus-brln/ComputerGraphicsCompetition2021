@@ -54,7 +54,7 @@ the project yourself that may or may not apply to other distros.
 
 **1. Compile the program using g++**
 
-   in scr/ execute:
+   in scr/ execute (note the lib/linux instead of windows):
 
    ```g++ -o main -std=c++2a -I. -L lib/linux  *.cc controller/*.cc utils/*.cc raytracerandfriends/*.cc  raytracerandfriends/lode/*.cc raytracerandfriends/shapes/*.cc  -lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp```
 
