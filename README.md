@@ -108,7 +108,8 @@ Change the .json files by yourself. You can look at the existing scenes for insp
 - SFML library used for keyboard input and display output, which is as easy as pygame https://www.sfml-dev.org/
 - Teaching Assistant Boris that helped me with compiling on Windows 10
 - Jurjen Bokma from the C++ Course for the Makefile that probably saved me like an hour in compile time (and will continue to do so in my future C++ projects...)
-
+- planet textures (including our moon and pluto): http://planetpixelemporium.com/planets.html
+- skybox texture https://forums.planetaryannihilation.com/threads/milky-way-skybox.72682/
 
 
 
