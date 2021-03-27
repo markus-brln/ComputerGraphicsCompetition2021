@@ -33,14 +33,14 @@ the program, simply run ```main.exe``` in the src directory.
 1. Install Mingw 8.1.0 compiler if you don't have a compiler yet.
 
    1.1 follow Mingw install instructions on https://code.visualstudio.com/docs/cpp/config-mingw
-      [download Mingw installer: https://sourceforge.net/projects/mingw-w64/ ]
-   1.2 don't forget to switch to x86_64 architechture
-   1.3 don't forget to add Mingw's bin folder to PATH, as described in 1.1
+      [download Mingw installer: https://sourceforge.net/projects/mingw-w64/ ]  
+   1.2 don't forget to switch to x86_64 architechture  
+   1.3 don't forget to add Mingw's bin folder to PATH, as described in 1.1  
 
 
 2. Compile the program
 
-   in scr/ execute:
+   in scr/ execute:  
 
    ```g++ -o main.exe -std=c++2a -I. -L lib/windows  *.cc controller/*.cc utils/*.cc raytracerandfriends/*.cc  raytracerandfriends/lode/*.cc raytracerandfriends/shapes/*.cc  -lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp```
 
@@ -59,7 +59,7 @@ the project yourself that may or may not apply to other distros.
 
 **1. Compile the program using g++**
 
-   in scr/ execute (note the lib/linux instead of windows):
+   in scr/ execute (note the lib/linux instead of windows):  
 
    ```g++ -o main -std=c++2a -I. -L lib/linux  *.cc controller/*.cc utils/*.cc raytracerandfriends/*.cc  raytracerandfriends/lode/*.cc raytracerandfriends/shapes/*.cc  -lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp```
 
