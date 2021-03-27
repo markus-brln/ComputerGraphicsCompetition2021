@@ -6,7 +6,7 @@ My contribution is introducing proper perspective to the raytracer,
 allowing the camera to move, displaying raytraced images to a window
 and building scenes such as a "simulation" of the solar system.
 
-You can find a more detailed description of the process under
+You can find a more detailed description of the process in
 documentationProject/doc.txt.
 
 Videos of different stages of the project can be found in this playlist:
