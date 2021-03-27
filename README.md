@@ -41,6 +41,12 @@ the program, simply run ```main.exe``` in the src directory.
    in scr/ execute:  
 
    ```g++ -o main.exe -std=c++2a -I. -L lib/windows  *.cc controller/*.cc utils/*.cc raytracerandfriends/*.cc  raytracerandfriends/lode/*.cc raytracerandfriends/shapes/*.cc  -lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp```
+   
+   Compiler flag explanation:    
+   - ```-std=c++2a```     Specify C++ standard to use
+   - ```-L lib/windows``` Search the library named library when linking.
+   - ```-lsfml-graphics -lsfml-window -lsfml-system``` Flags that LSFM library requires, see https://www.sfml-dev.org/tutorials/2.5/start-linux.php
+   - ```-fopenmp```       Multithreading with OpenMP, see ```#pragma``` directive in Scene::renderToSFImage()
 
 
 ### Linux:
