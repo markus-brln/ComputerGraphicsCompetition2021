@@ -221,6 +221,8 @@ void Scene::render(Image &img)
             img(x, y) = col;
         }
 }
+// old render function used in CG course
+
 
 void Scene::checkCorrectEye()
 {
@@ -232,6 +234,9 @@ void Scene::checkCorrectEye()
 
 void Scene::SolarSystemSimStep()
 {
+    double frameVel = 0.01;             // fraction of how many frames it takes
+                                        // to let 1 year on earth pass
+
     // Sun, Mercury, Venus, Earth, Moon (Earth), Mars, Jupiter, Saturn, Uranus, Neptune, Pluto
     // 24 -> 2.400 km
     vector<size_t> planetRadii{ 700, 24, 60, 64, 17, 34, 669, 582, 253, 246, 12 };
@@ -243,9 +248,6 @@ void Scene::SolarSystemSimStep()
     vector<double> planetYearLengths{ 0, 0.24, 0.616, 1.0, 1.0, 1.9, 12.0, 29.5, 84, 165, 248 };
    
     vector<ObjectPtr> planets;
-
-    //d_raytracer.scene.getObjects()[0]->position;
-
 
     // get all spheres that have a texture -> planet
     for (ObjectPtr &planet : getObjects())
@@ -272,10 +274,10 @@ void Scene::SolarSystemSimStep()
 
             // pre-rotate earth copy
             velocityMultiplier = 1 / planetYearLengths[3];
-            rotateVector(earth, 0, 0.01 * velocityMultiplier, 0);
+            rotateVector(earth, 0, frameVel * velocityMultiplier, 0);
 
             velocityMultiplier = 1 / (27.322 / 365.25);  // speed of moon around earth
-            rotateVector(earthToMoon, 0, 0.01 * velocityMultiplier, 0);
+            rotateVector(earthToMoon, 0, frameVel * velocityMultiplier, 0);
 
             planets[4]->position = earth + earthToMoon;
             continue;
@@ -285,6 +287,8 @@ void Scene::SolarSystemSimStep()
         rotateVector(planets[idx]->position, 0, 0.01 * velocityMultiplier, 0);
     }
 }
+// MB Rotate the planets around the sun (and the moon around the earth) according
+// to their real-world year durations. Adjust 'frameVel' for different speeds.
 
 
 void Scene::renderToSFImage(sf::Image &img)
@@ -297,49 +301,51 @@ void Scene::renderToSFImage(sf::Image &img)
     int h = size.y;                     // could be replaced by SIZE
 
 
-    Vector down{ 0, -1, 0 };            // vector down from upperLeft
-    Vector right{ 1, 0, 0 };            // vector right from upperLeft
+    Vector down{ 0, -1, 0 };            // vector down from centre of screen
+    Vector right{ 1, 0, 0 };            // vector right from centre
     
+
     rotateVector(down, eyeRotation.x, eyeRotation.y, eyeRotation.z);
     rotateVector(right, eyeRotation.x, eyeRotation.y, eyeRotation.z);
 
-    Vector d_camera = right.cross(down);  // use the camera vector to get the pixels
-    Point screenCentre = eye + d_camera * SIZE * 1/d_zoom;
-    //cout << "eye: " << eye << '\n';
-    //cout << "down: " << down << '\n';
-    //cout << "right: " << right << '\n';
+                                        // camera perpendicular to screen formed
+    Vector d_camera = right.cross(down);// by right+down
+    
+    Point screenCentre = eye + d_camera * SIZE * d_zoom;
 
+    // EXPLANATION PERSPECTIVE
+    // Imagine the data member 'eye' being the tip of a pyramid that lays on the
+    // side (initially without rotation). 'd_camera' points from the tip of the
+    // pyramid to the centre of its base, the 'screenCentre'. Since the size of
+    // the screen is dependent on 'SIZE', the camera vector is simply multiplied
+    // by it, giving a 52° field of view if my calculations are correct.
+    // Finally, greater zoom means that the imaginary screen is further away,
+    // resulting in the 'screenCentre'. From there, we can use the rotated 'right'
+    // and 'down' vectors to get to each individual pixel. We do not have to worry
+    // about the screen being inside an object, since it simply provides the 
+    // direction of the 'ray'.
 
+    //#pragma acc kernels loop          // experiment with OpenACC
     # pragma omp parallel for
     for (int y = 0; y < h; ++y)
     {
         for (int x = 0; x < w; ++x)
         {
+            // go from top left to bottom right, using the 3 rotated vectors
             Point pixel = screenCentre + (x - SIZE/2) * right + (y - SIZE/2) * down;
-            //cout << SIZE << '\n';
-            //cout << screenCentre << '\n';
-            //cout << pixel << '\n';
-            //cout << (x - SIZE/2) * right << '\n';
 
+            Ray ray(eye, (pixel - eye).normalized());   // shoot ray through pixel
+            Color col = trace(ray, recursionDepth);     
+            col.clamp();                                // some spots might be too bright
 
-            Ray ray(eye, (pixel - eye).normalized());
-            Color col = trace(ray, recursionDepth);
-
-           
-            col.clamp();
-            // MB some conversion problems here, but whatever..
+                                                        // SFML wants 0-255 ints
             img.setPixel(x, y, sf::Color{ static_cast<sf::Uint8>(col.r * 255),  
                                           static_cast<sf::Uint8>(col.g * 255), 
                                           static_cast<sf::Uint8>(col.b * 255) 
                                         }
             );
-            //cout << x << ' '; 
-        }
-        //cout << '\n' << y << '\n';
-        
+        }        
     }
-    
-    
 }
 // MB rewritten render function
 
@@ -413,3 +419,4 @@ void Scene::setSuperSample(unsigned factor)
 {
     supersamplingFactor = factor;
 }
+

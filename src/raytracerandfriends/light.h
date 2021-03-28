@@ -22,3 +22,4 @@ class Light
 };
 
 #endif
+

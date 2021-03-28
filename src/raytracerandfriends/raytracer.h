@@ -34,3 +34,4 @@ class Raytracer
 };
 
 #endif
+

@@ -238,3 +238,4 @@ ostream &operator<<(ostream &os, Triple const &t)
     os << '[' << t.x << ", " << t.y << ", " << t.z << ']';
     return os;
 }
+

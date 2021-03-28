@@ -97,3 +97,4 @@ void Image::read_png(std::string const &filename)
         d_pixels.push_back(Color(r, g, b));
     }
 }
+

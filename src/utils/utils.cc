@@ -136,3 +136,4 @@ void upscaleSFImage(sf::Image &image)
 }
 // failed attempt to upscale+smooth the picture to reduce
 // computations
+

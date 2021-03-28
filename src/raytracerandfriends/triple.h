@@ -101,3 +101,4 @@ std::istream &operator>>(std::istream &is, Triple &t);
 std::ostream &operator<<(std::ostream &os, Triple const &t);
 
 #endif
+

@@ -203,3 +203,4 @@ OBJLoader::StringList OBJLoader::split(string const &line,
 
     return tokens;
 }
+

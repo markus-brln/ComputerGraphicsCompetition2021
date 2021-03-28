@@ -19,3 +19,4 @@ sf::Text Controller::createText()
 
     return text;
 }
+

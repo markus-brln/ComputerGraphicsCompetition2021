@@ -29,9 +29,9 @@ void Controller::handleKeyPresses()
 
     // Zoom
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Add))
-        d_raytracer.scene.zoom(0.95);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Subtract))
         d_raytracer.scene.zoom(1.05);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Subtract))
+        d_raytracer.scene.zoom(0.95);
 
     
     // for now not active, would require even more rotation I think
@@ -42,3 +42,4 @@ void Controller::handleKeyPresses()
 }
 // this is for live input (allowing for multiple input actions at the same time),
 // nice tutorial about it: https://www.youtube.com/watch?v=hZ2WogmdLPo&t=76s
+

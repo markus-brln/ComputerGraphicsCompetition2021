@@ -67,6 +67,10 @@ the project yourself that may or may not apply to other distros.
 
    ```g++ -o main -std=c++2a -I. -L lib/linux  *.cc controller/*.cc utils/*.cc raytracerandfriends/*.cc  raytracerandfriends/lode/*.cc raytracerandfriends/shapes/*.cc  -lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp```
 
+   I tried using OpenACC (requires Linux, Nvidia graphics card and CUDA...), but I was not  
+   successful yet. Suggestions on how to parallelize the nested loop in Scene::renderToSFImage()  
+   would be appreciated :)  
+   ```nvc++ -o main -std=c++2a -I. -L lib/linux  *.cc controller/*.cc utils/*.cc raytracerandfriends/*.cc  raytracerandfriends/lode/*.cc raytracerandfriends/shapes/*.cc  -lm -lsfml-graphics -lsfml-window -lsfml-system -acc -Minfo=accel```
 
 **2. What I did when developing**
 

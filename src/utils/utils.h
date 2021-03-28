@@ -25,3 +25,4 @@ void chooseScene();
 void upscaleSFImage(sf::Image &image);      // failed attempt
 
 #endif
+

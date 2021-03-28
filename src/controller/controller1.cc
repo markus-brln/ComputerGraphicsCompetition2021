@@ -6,3 +6,4 @@ Controller::Controller(Raytracer &raytracer, RenderWindow &window)
     d_window(window)
 {
 }
+
