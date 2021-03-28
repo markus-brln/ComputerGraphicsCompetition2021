@@ -4,7 +4,9 @@ This project builds upon the code provided in the Computer Graphics course
 at the University of Groningen, which can mainly be found in src/raytracerandfriends.
 My contribution is introducing proper perspective to the raytracer, 
 allowing the camera to move, displaying raytraced images to a window
-and building scenes such as a "simulation" of the solar system.  
+and building scenes such as a "simulation" of the solar system. If you want to find
+what I added quickly, then Ctrl+F for 'MB', I started many of my comments where I 
+modified the provided code with that.  
 You can find a more detailed description of the process in
 documentationProject/doc.txt.
 
@@ -133,7 +135,16 @@ Change the .json files by yourself. You can look at the existing scenes for insp
 ![librarySetup](https://user-images.githubusercontent.com/56026631/112718740-39a24680-8ef5-11eb-91f4-1e59d65bbe47.png)
 
 
+## TODOs
 
-
-
+- somehow involve graphics cards in the creation of the images, as stated above  
+  I tried with OpenACC, it compiles but failes to generate acc code for the loop
+  that I want to parallelize -> results in single CPU core program
+- rotation around (what is initially) the Z-axis
+- more shapes, loading in complex objects, giving them textures (should be doable
+  with the provided code I guess, just haven't tried yet)
+- Upscaling images, so that raytracing only has to be done at a lower resolution.
+  I first thought about training a neural network for upscaling etc, but that would
+  not meet the requirements of the competition. Then I tried some blurring in
+  upscaleSFImage() (see utils.cc), but that was not successful for now.
 

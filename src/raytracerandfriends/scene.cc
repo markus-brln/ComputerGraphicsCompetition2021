@@ -29,6 +29,7 @@ pair<ObjectPtr, Hit> Scene::castRay(Ray const &ray) const
 
     return pair<ObjectPtr, Hit>(obj, min_hit);
 }
+// provided in CG course, find hit with object, if any
 
 
 bool Scene::lightObstructed(LightPtr const &light, Point const &hit, Vector const &normalFromObj)
@@ -67,8 +68,6 @@ Color Scene::trace(Ray const &ray, unsigned depth)
     {
         return Color(0.0, 0.0, 0.0);
     }
-
-    //cout << "t: " << min_hit.t << '\n';
 
     Material const &material = obj->material;
     Point hit = ray.at(min_hit.t);

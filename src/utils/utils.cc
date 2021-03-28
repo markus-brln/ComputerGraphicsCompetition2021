@@ -58,7 +58,7 @@ void chooseScene()
     for (auto scene : myScenes)
         cout << "\"../Scenes/myScenes/" + scene + ".json\"\n";
     
-    cout << "Enter the number of these scenes or write the relative path of your own.\n\n";
+    cout << "Enter the number of these scenes or write the relative path of your own.\n";
 
     string userInput;
     getline(cin, userInput);
@@ -75,7 +75,8 @@ void chooseScene()
         SCENE = userInput;
     }
 }
-// ask user for scene, pick from standard or input own relative path
+// ask user for scene, pick from standard or input own relative path,
+// raytracer.readScene(SCENE) will fail if path does not exist.
 
 
 void upscaleSFImage(sf::Image &image)

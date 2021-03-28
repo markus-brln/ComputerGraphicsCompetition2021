@@ -8,7 +8,7 @@ std::string SCENE = string{};           // a global needs to be defined
 
 int main()
 {
-    chooseScene();
+    chooseScene();                      // utils.cc
 
     Raytracer raytracer;                // raytracer+scene are "model" in MVC pattern
     sf::RenderWindow window(            // sf::Window is view 
@@ -29,6 +29,3 @@ int main()
 
     return 0;
 }
-
-// TODO: transformations from openGL shaders applied to raytracing
-

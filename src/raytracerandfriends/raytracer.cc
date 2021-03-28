@@ -198,14 +198,16 @@ void Raytracer::renderToFile(string const &ofname)
     img.write_png(ofname);
     cout << "Done.\n";
 }
+// old function from CG course
 
 sf::Image Raytracer::renderToSFImage()
 {
     sf::Image img;        // construct SFML image
     img.create(SIZE, SIZE);
 
-    //cout << "Tracing...\n";
     scene.renderToSFImage(img);
 
     return img;
 }
+// MB Raytracer has a data member 'scene' responsible for the
+// heavy lifting
