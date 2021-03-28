@@ -21,6 +21,7 @@ extern bool SolarSystemSimOn;
 double distance3D(Triple t1, Triple t2);
 double angle(Triple a, Triple b);
 void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot);
+void rotateVectorAroundVector(Vector &vec, Vector const &axis, double angle);
 void chooseScene();
 void upscaleSFImage(sf::Image &image);      // failed attempt
 

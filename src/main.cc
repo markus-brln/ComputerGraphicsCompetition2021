@@ -6,6 +6,8 @@ bool SolarSystemSimOn = false;          // at start no planet movement, press Sp
 std::string SCENE = string{};           // a global needs to be defined
 
 
+
+
 int main()
 {
     chooseScene();                      // utils.cc

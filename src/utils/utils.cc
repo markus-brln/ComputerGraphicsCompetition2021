@@ -48,6 +48,17 @@ void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot)
 // operates on ref of Vector obj
 
 
+void rotateVectorAroundVector(Vector &vec, Vector const &axis, double angle)
+{
+    Vector kUnit = axis.normalized();   // axis needs to be unit vector
+
+    vec = vec * cos(angle) + kUnit.cross(vec) * sin(angle) + kUnit * kUnit.dot(vec) * (1 - cos(angle));
+}
+// probably useful for rotation around camera vector (initially z-axis)
+// using the Rodrigues' rotation formula:
+// https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
+
+
 void chooseScene()
 {
     vector<string> myScenes { "1basic", "2earth", "3mixed", "4sun",

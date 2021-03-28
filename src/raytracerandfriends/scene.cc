@@ -234,7 +234,8 @@ void Scene::checkCorrectEye()
 void Scene::SolarSystemSimStep()
 {
     double frameVel = 0.01;             // fraction of how many frames it takes
-                                        // to let 1 year on earth pass
+                                        // to let 1 year on earth pass 
+                                        // 0.01 -> 100 frames == 1 full orbit of earth
 
     // Sun, Mercury, Venus, Earth, Moon (Earth), Mars, Jupiter, Saturn, Uranus, Neptune, Pluto
     // 24 -> 2.400 km
@@ -283,7 +284,7 @@ void Scene::SolarSystemSimStep()
         }
         velocityMultiplier = 1 / planetYearLengths[idx];
                                         // rotate position around Y axis
-        rotateVector(planets[idx]->position, 0, 0.01 * velocityMultiplier, 0);
+        rotateVector(planets[idx]->position, 0, frameVel * velocityMultiplier, 0);
     }
 }
 // MB Rotate the planets around the sun (and the moon around the earth) according
@@ -303,12 +304,16 @@ void Scene::renderToSFImage(sf::Image &img)
     Vector down{ 0, -1, 0 };            // vector down from centre of screen
     Vector right{ 1, 0, 0 };            // vector right from centre
     
-
-    rotateVector(down, eyeRotation.x, eyeRotation.y, eyeRotation.z);
-    rotateVector(right, eyeRotation.x, eyeRotation.y, eyeRotation.z);
+                                        // no Z-rotation yet
+    rotateVector(down, eyeRotation.x, eyeRotation.y, 0);
+    rotateVector(right, eyeRotation.x, eyeRotation.y, 0);
 
                                         // camera perpendicular to screen formed
     Vector d_camera = right.cross(down);// by right+down
+
+    // rotate around the camera for Z-rotation (unfinished)
+    // rotateVectorAroundVector(down, d_camera, eyeRotation.z);
+    // rotateVectorAroundVector(right, d_camera, eyeRotation.z);
     
     Point screenCentre = eye + d_camera * SIZE * d_zoom;
 
