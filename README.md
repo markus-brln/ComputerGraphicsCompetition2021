@@ -10,6 +10,9 @@ modified the provided code with that.
 You can find a more detailed description of the process in
 documentationProject/doc.txt.
 
+![eSolarSysGif](https://user-images.githubusercontent.com/56026631/112857913-a3ffe600-90b1-11eb-8eec-0c8fee89e895.gif)
+
+
 Videos of different stages of the project can be found in this playlist:  
 https://www.youtube.com/watch?v=6rHRHlJg37s&list=PL7uXyOTDLR1gYDpTEuKeJiKMgc_PqlTov&index=1
 
