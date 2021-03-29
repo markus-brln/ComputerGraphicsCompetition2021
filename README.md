@@ -11,10 +11,8 @@ You can find a more detailed description of the process in
 documentationProject/doc.txt.
 
 ![eSolarSysGif](https://user-images.githubusercontent.com/56026631/112857913-a3ffe600-90b1-11eb-8eec-0c8fee89e895.gif)
-![gfancyScene](https://user-images.githubusercontent.com/56026631/112858870-9434d180-90b2-11eb-92ed-8ed65cf59b0f.gif)
-
-A raytraced solar system simulation with realistic size and orbit period proportions and another scene showcasing  
-multiple lights, textures, reflection, refraction and shadows.
+![gfancyScene](https://user-images.githubusercontent.com/56026631/112858870-9434d180-90b2-11eb-92ed-8ed65cf59b0f.gif)  
+A raytraced solar system simulation with realistic size (except for the sun...) and orbit-period proportions and another scene showcasing multiple lights, textures, reflection, refraction and shadows.
 
 
 Videos of different stages of the project can be found in this playlist:  
@@ -22,7 +20,7 @@ https://www.youtube.com/watch?v=6rHRHlJg37s&list=PL7uXyOTDLR1gYDpTEuKeJiKMgc_Pql
 
 
 ![bshadowsHighRes](https://user-images.githubusercontent.com/56026631/112717810-2b512c00-8eef-11eb-8249-38791959a4d2.png)
-Doesn't Jupiter look majestic? (At this window size the program does ***not*** run smoothly. Modify SIZE in main.cc to adapt 
+Doesn't Jupiter look majestic? (At this window size the program does ***not*** run smoothly (~1-2 fps). Modify SIZE in main.cc to adapt 
 it to your wishes.)
 
 
@@ -35,7 +33,7 @@ it to your wishes.)
 If you have trouble compiling (see the following steps) or just quickly want to try out 
 the program, simply run ```main.exe``` in the src directory.
 
-#### Compile yourself
+#### Compile the project yourself
 
 1. Install Mingw 8.1.0 compiler if you don't have a compiler yet.
 
@@ -65,7 +63,7 @@ the program, simply run ```main.exe``` in the src directory.
 If you have trouble compiling (see the following steps) or just quickly want to try out 
 the program, simply run ```./main``` in the src directory.
 
-#### Compile yourself
+#### Compile the project yourself
 
 I only have experience with Ubuntu, here are some ways of how you can compile 
 the project yourself that may or may not apply to other distros.
@@ -150,7 +148,7 @@ Change the .json files by yourself. You can look at the existing scenes for insp
 - rotation around (what is initially) the Z-axis
 - more shapes, loading in complex objects, giving them textures (should be doable
   with the provided code I guess, just haven't tried yet)
-- Upscaling images, so that raytracing only has to be done at a lower resolution.
+- Upscaling images so that raytracing only has to be done at a lower resolution.
   I first thought about training a neural network for upscaling etc, but that would
   not meet the requirements of the competition. Then I tried some blurring in
   upscaleSFImage() (see utils.cc), but that was not successful for now.
