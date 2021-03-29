@@ -11,6 +11,10 @@ You can find a more detailed description of the process in
 documentationProject/doc.txt.
 
 ![eSolarSysGif](https://user-images.githubusercontent.com/56026631/112857913-a3ffe600-90b1-11eb-8eec-0c8fee89e895.gif)
+![gfancyScene](https://user-images.githubusercontent.com/56026631/112858870-9434d180-90b2-11eb-92ed-8ed65cf59b0f.gif)
+
+A raytraced solar system simulation with realistic size and orbit period proportions and another scene showcasing  
+multiple lights, textures, reflection, refraction and shadows.
 
 
 Videos of different stages of the project can be found in this playlist:  
