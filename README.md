@@ -5,7 +5,7 @@ at the University of Groningen, which can mainly be found in src/raytracerandfri
 My contribution is introducing proper perspective to the raytracer, 
 allowing the camera to move, displaying raytraced images to a window
 and building scenes such as a "simulation" of the solar system. If you want to find
-what I added quickly, then Ctrl+F for 'MB', I started many of my comments where I 
+what I added quickly, then Ctrl+F for 'MB' (my initials), I started many of my comments where I 
 modified the provided code with that.  
 You can find a more detailed description of the process in
 documentationProject/doc.txt.
@@ -124,6 +124,7 @@ Change the .json files by yourself. You can look at the existing scenes for insp
 
 ## Credits
 
+- my partner for the course, Hugo, who worked on the pure raytracing part with me
 - SFML library used for keyboard input and display output, which is as easy as pygame https://www.sfml-dev.org/
 - Teaching Assistant Boris that helped me with compiling on Windows 10
 - Jurjen Bokma from the C++ Course for the Makefile that probably saved me like an hour in compile time (and will continue to do so in my future C++ projects...)
