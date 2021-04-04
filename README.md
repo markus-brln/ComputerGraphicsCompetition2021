@@ -1,4 +1,6 @@
 # Computer Graphics Competition 2021 - Raytracing 
+by Markus Bäuerlein  
+
 
 This project builds upon the code provided in the Computer Graphics course
 at the University of Groningen, which can mainly be found in src/raytracerandfriends.
