@@ -5,7 +5,6 @@ void Controller::handleKeyPresses()
 {
     // Translation
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        //Vector translate = 
         d_raytracer.scene.translateEye(0, 0, -30);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         d_raytracer.scene.translateEye(0, 0, 30);
