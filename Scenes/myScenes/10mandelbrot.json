@@ -1,0 +1,31 @@
+{
+    "Eye": [100, 200, 500],
+    "Shadows": false,
+    "MaxRecursionDepth": 1,
+    "Lights": [
+        {
+            "position": [-200, 600, -1500],
+            "color": [0.4, 0.4, 0.8]
+        },
+        {
+            "position": [600, 600, -1500],
+            "color": [0.8, 0.8, 0.4]
+        }
+    ],
+    "Objects": [
+        {
+            "type": "mandelbrot",
+            "comment": "Mandelbrot Set",
+            "position": [0, 0, 0],
+            "radius": 50,
+            "material":
+            {
+                "color": [0.0, 0.0, 1.0],
+                "ka": 0.2,
+                "kd": 0.7,
+                "ks": 0.5,
+                "n": 64
+            }
+        }
+    ]
+}

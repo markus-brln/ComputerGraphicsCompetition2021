@@ -78,6 +78,8 @@ March 25
   Scene::lightObstructed() the light is not obstructed by the sun -> shadows
   on planets!
   
+September 12
+- added Mandelbrot 2D fractal (fixed rotation in a plane)
 
 TODO: 
       - handle rotating around Z -> the camera vector

@@ -18,6 +18,7 @@ extern bool SolarSystemSimOn;
 
 // USEFUL FUNCTIONS
 
+double distance2D(double x1, double y1, double x2, double y2);
 double distance3D(Triple t1, Triple t2);
 double angle(Triple a, Triple b);
 void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot);

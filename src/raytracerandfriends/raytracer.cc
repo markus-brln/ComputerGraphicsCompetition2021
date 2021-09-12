@@ -11,6 +11,7 @@
 
 #include "shapes/quad.h"
 #include "shapes/sphere.h"
+#include "shapes/mandelbrot.h"
 
 // =============================================================================
 // -- End of shape includes ----------------------------------------------------
@@ -67,6 +68,25 @@ bool Raytracer::parseObjectNode(json const &node)
                                                 // no raytracing, see Scene::trace()
 
         
+    }
+    else if (node["type"] == "mandelbrot")
+    {
+        Point pos(node["position"]);
+        double radius = node["radius"];
+        if (node.count("rotation"))
+        {
+            // Create sphere with rotation
+            Vector rotation(node["rotation"]);
+            double angle = node["angle"];
+            obj = ObjectPtr(new Mandelbrot(pos, radius, rotation, angle));
+            
+        }
+        else
+        {
+            obj = ObjectPtr(new Mandelbrot(pos, radius));
+        }
+        obj->objComment = node["comment"];      // MB enable to identify the sun for its lighting
+                                                // ignore its shadow, see Scene::lightObstructed()
     }
     else
     {

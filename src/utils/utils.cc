@@ -1,5 +1,12 @@
 #include "utils.h"
 
+
+double distance2D(double x1, double y1, double x2, double y2)
+{
+    return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2) );
+}
+// distance between 2 2D points
+
 double distance3D(Triple t1, Triple t2)
 {
     return sqrt(pow(t1.x - t2.x, 2) + pow(t1.y - t2.y, 2) + pow(t1.z - t2.z, 2));
@@ -63,7 +70,7 @@ void chooseScene()
 {
     vector<string> myScenes { "1basic", "2earth", "3mixed", "4sun",
                               "5earthAloneRotation", "6skyboxOnly", "7solSysRealDistProportions",
-                              "8fancy", "9solarSystem" };
+                              "8fancy", "9solarSystem", "10mandelbrot" };
         cout << "Scenes constructed by me:\n";
 
     for (auto scene : myScenes)
