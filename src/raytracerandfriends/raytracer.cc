@@ -220,14 +220,9 @@ void Raytracer::renderToFile(string const &ofname)
 }
 // old function from CG course
 
-sf::Image Raytracer::renderToSFImage()
+void Raytracer::renderToSFImage(sf::Image &img)
 {
-    sf::Image img;        // construct SFML image
-    img.create(SIZE, SIZE);
-
     scene.renderToSFImage(img);
-
-    return img;
 }
 // MB Raytracer has a data member 'scene' responsible for the
 // heavy lifting

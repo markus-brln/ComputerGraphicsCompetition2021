@@ -5,7 +5,7 @@ void Controller::run()
 {
     sf::Clock Clock;                    // for frame rate
     sf::Event event;
-    sf::Image img;                      // image of which the pixels are set 
+    //sf::Image img;                      // image of which the pixels are set 
                                         // through raytracing
     sf::Texture texture;                // Texture made from Image
     sf::Sprite sprite;                  // Sprite whose Texture is set
@@ -16,6 +16,9 @@ void Controller::run()
     text.setFont(font);
     text.setCharacterSize(10);
     text.setFillColor(sf::Color::White);
+    sf::Image img;
+    img.create(SIZE, SIZE);
+
 
     while (d_window.isOpen())
     {
@@ -28,7 +31,7 @@ void Controller::run()
         if (SolarSystemSimOn && SCENE == "../Scenes/myScenes/9solarSystem.json")
             d_raytracer.scene.SolarSystemSimStep();
         
-        img = d_raytracer.renderToSFImage();    // heavy work
+        d_raytracer.renderToSFImage(img);    // heavy work
         
         texture.loadFromImage(img);     //Load Texture from image
         sprite.setTexture(texture);

@@ -23,7 +23,7 @@ class Raytracer
         bool readScene(std::string const &ifname);
         void renderToFile(std::string const &ofname);
 
-        sf::Image renderToSFImage();      // MB returns sf::Image obj
+        void renderToSFImage(sf::Image &img);      // MB returns sf::Image obj
 
     private:
 
