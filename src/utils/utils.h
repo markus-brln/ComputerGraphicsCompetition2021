@@ -14,6 +14,9 @@ extern int SIZE;
 //extern int UPSCALED;
 extern string SCENE;
 extern bool SolarSystemSimOn;
+extern double MOVEMENT_MUL;
+extern double MOVEMENT_BASE;
+
 
 
 // USEFUL FUNCTIONS
@@ -24,6 +27,7 @@ double angle(Triple a, Triple b);
 void rotateVector(Vector &vec, double x_rot, double y_rot, double z_rot);
 void rotateVectorAroundVector(Vector &vec, Vector const &axis, double angle);
 void chooseScene();
+void modifyMovementSpeed(double factor);
 void upscaleSFImage(sf::Image &image);      // failed attempt
 
 #endif

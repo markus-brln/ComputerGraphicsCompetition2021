@@ -99,6 +99,10 @@ Color Scene::trace(Ray const &ray, unsigned depth)
 
     // Add ambient once, regardless of the number of lights.
     Color color = material.ka * matColor;
+    if (min_hit.has_color)
+    {
+        color = material.ka * min_hit.col;
+    }
 
     // Add diffuse and specular components.
     for (auto const &light : lights)
@@ -295,6 +299,9 @@ void Scene::renderToSFImage(sf::Image &img)
 {
     checkCorrectEye();                  // corrects eye position if in
                                         // segfault-invoking position
+
+    if (SCENE.find("mandelbrot") != string::npos)
+        modifyMovementSpeed(eye.y / 300);   // avoid colliding with plane in 2D mandelbrot
 
     sf::Vector2u size = img.getSize();
     int w = size.x;

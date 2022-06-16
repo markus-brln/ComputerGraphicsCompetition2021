@@ -8,7 +8,7 @@
 
 # Help: Try setting CXX, CXXFLAGS etc. https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html
 # If no flags are set (?=), use at least these.
-CXX = g++-10
+CXX = g++
 CXXFLAGS ?= -Wall -std=c++2a -fopenmp
 
 # Help: Try: 'make PCH=off' to disable precompiled headers. Or comment out in Makefile.

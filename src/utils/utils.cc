@@ -97,6 +97,11 @@ void chooseScene()
 // raytracer.readScene(SCENE) will fail if path does not exist.
 
 
+void modifyMovementSpeed(double factor) 
+{
+    MOVEMENT_MUL = factor;
+}
+
 void upscaleSFImage(sf::Image &image)
 {
     /*int scalingFactor = UPSCALED / SIZE;

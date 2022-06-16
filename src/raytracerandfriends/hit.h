@@ -9,6 +9,8 @@ class Hit
     public:
         double t;   // distance of hit
         Vector N;   // Normal at hit
+        bool has_color = false;
+        Color col;
 
         Hit(double time, Vector const &normal)
         :

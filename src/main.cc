@@ -1,10 +1,11 @@
 #include "main.ih"
 
 // define globals
-int SIZE = 300;
+int SIZE = 500;
 bool SolarSystemSimOn = false;          // at start no planet movement, press Space to start
 std::string SCENE = string{};           // a global needs to be defined
-
+double MOVEMENT_MUL = 1.0;
+double MOVEMENT_BASE = 30.0;
 
 
 

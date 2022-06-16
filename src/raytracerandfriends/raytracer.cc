@@ -85,8 +85,6 @@ bool Raytracer::parseObjectNode(json const &node)
         {
             obj = ObjectPtr(new Mandelbrot(pos, radius));
         }
-        obj->objComment = node["comment"];      // MB enable to identify the sun for its lighting
-                                                // ignore its shadow, see Scene::lightObstructed()
     }
     else
     {

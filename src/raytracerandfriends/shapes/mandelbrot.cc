@@ -46,12 +46,27 @@ Hit Mandelbrot::intersect(Ray const &ray)
     double imag = (position.z - hit.z) / mandelSize;
     size_t maxIter = 50;
 
-    size_t mandel = mandel_loop(real, imag, maxIter);
-
-    if (mandel == maxIter)
-        return Hit(t, N);
-    else
+    double mandel = mandel_loop(real, imag, maxIter);
+    
+    if (mandel == maxIter) {
         return Hit::NO_HIT();
+    }
+    else {
+        Hit new_hit = Hit(t, N);
+        new_hit.has_color = true;
+        double zn = sqrt(real * real + imag * imag);
+        new_hit.col = Color(
+            mandel + 50 - 50 * (log(2) / zn ) / log(2),
+            1.0 * mandel / 2 + 50 - 50 * (log(2) / (zn * 0.5) ) / log(2),
+            mandel + 50 - 50 * (log(2) / zn ) / (0.8 * log(2))
+        );
+        // new_hit.col = Color(
+        //     (1 - sin(0.05 * mandel)) / 2,
+        //     (1 - cos(0.3 * mandel)) / 2, 
+        //     (1 - cos(0.15 * mandel)) / 2
+        // );
+        return new_hit;
+    }
 
     /*Vector L = ray.O - position;
     double a = ray.D.dot(ray.D);
@@ -112,7 +127,10 @@ Mandelbrot::Mandelbrot(Point const &pos, double radius, Vector const& axis, doub
 
 void Mandelbrot::checkCorrectEye(Point &eye)
 {
-    if (distance3D(eye, position) < r)
-        eye += (eye - position).normalized() * 30;
+    // Set movement speed based on distance to the plane
+    // modifyMovementSpeed(eye.z);
+
+    // if (distance3D(eye, position) < r)
+    //     eye += (eye - position).normalized() * 30;
 }
 // MB push the eye/camera back by the amount it can maximally go -> 30 units

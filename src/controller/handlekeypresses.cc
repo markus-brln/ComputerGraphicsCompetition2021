@@ -3,19 +3,20 @@
 
 void Controller::handleKeyPresses()
 {
+    double movement = MOVEMENT_BASE * MOVEMENT_MUL;
     // Translation
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        d_raytracer.scene.translateEye(0, 0, -30);
+        d_raytracer.scene.translateEye(0, 0, -movement);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        d_raytracer.scene.translateEye(0, 0, 30);
+        d_raytracer.scene.translateEye(0, 0, movement);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        d_raytracer.scene.translateEye(-30, 0, 0);
+        d_raytracer.scene.translateEye(-movement, 0, 0);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        d_raytracer.scene.translateEye(30, 0, 0);
+        d_raytracer.scene.translateEye(movement, 0, 0);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-        d_raytracer.scene.translateEye(0, 30, 0);
+        d_raytracer.scene.translateEye(0, movement, 0);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-        d_raytracer.scene.translateEye(0, -30, 0);
+        d_raytracer.scene.translateEye(0, -movement, 0);
 
     // Rotation (taking zoom into account)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
